@@ -1,0 +1,88 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #F3AD06;
+	background-image: url();
+	background-repeat: no-repeat;
+}
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+}
+.main_cont {
+	background-image: url(/imgs/bg.png);
+	background-repeat: no-repeat;
+	display: block;
+	width: 1273px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 700px;
+}
+.content_box {
+	width: 740px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #FFFFFF;
+	display: block;
+	height: 100%;
+	padding-right: 30px;
+	padding-left: 30px;
+}
+.nav_cont {
+	display: block;
+	height: 112px;
+	width: 100%;
+	background-image: url(/imgs/hdr_bg.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.main_cont .content_box .nav_cont img {
+	display: block;
+	height: 23px;
+	width: 482px;
+	margin-left: auto;
+	padding-top: 74px;
+}
+
+.adoptnow {
+	display: block;
+	height: 250px;
+	width: 425px;
+	float: left;
+	margin-right: 15px;
+}
+.ad_lp {
+	display: block;
+	height: 250px;
+	width: 300px;
+	float: left;
+}
+.aboutus {
+	display: block;
+	float: left;
+	height: 272px;
+	width: 360px;
+	margin-top: 20px;
+}
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-align: center;
+	display: block;
+	width: 100%;
+	margin-top: 15px;
+	color: #666666;
+	float: left;
+}
+.donatenow {
+	display: block;
+	float: right;
+	height: 272px;
+	width: 360px;
+	margin-top: 20px;
+}

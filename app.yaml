@@ -10,7 +10,7 @@ handlers:
 - url: /imgs
   static_dir: static/imgs
 
-- url: /admin/.*
+- url: /admin.*
   script: admin.py
   login: admin
 

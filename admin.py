@@ -66,7 +66,7 @@ class ShelterHandler(webapp.RequestHandler):
         self.redirect('/admin/')
 
 def main():
-    application = webapp.WSGIApplication([('/admin/', MainHandler),
+    application = webapp.WSGIApplication([('/admin/?', MainHandler),
                                          ('/admin/shelter', ShelterHandler)],
                                          debug=True)
     util.run_wsgi_app(application)

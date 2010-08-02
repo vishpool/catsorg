@@ -9,8 +9,8 @@ class MainHandler(webapp.RequestHandler):
     def get(self):
         template_values = {
             'title': 'Caring About The Strays',
-            'copyright': 'Copyrights 2010 Text Goes Here',
-            }
+            'footer': 'Copyrights 2010 Text Goes Here',
+        }
 
         path = os.path.join(os.path.dirname(__file__), 'index.html')
         self.response.out.write(template.render(path, template_values))

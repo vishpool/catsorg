@@ -1,0 +1,11 @@
+<html><body>
+    <div><b>Hello, Admin ({{ admin }})!</b></div>
+    <form action="/admin/shelter" method="post">
+        <div>Shelter ID: <input type="text" name="shelter_id" value="{{ shelter_id }}"></input></div>
+        <div>Site Title: <textarea name="site_title" rows="3" cols="60">{{ site_title }}</textarea></div>
+        <div>Site Footer: <textarea name="site_footer" rows="3" cols="60">{{ site_footer }}</textarea></div>
+        <div>API Key: <input type="text" name="api_key" value="{{ api_key }}"></input></div>
+        <div>API Secret: <input type="text" name="api_secret" value="{{ api_secret }}"></input></div>
+        <div><input type="submit" value="Setup Shelter"> <input type="reset" value="Reset"><i>{{ shelter_admin }}</i></div>
+    </form>
+</body></html>

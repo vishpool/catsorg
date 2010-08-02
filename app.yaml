@@ -10,5 +10,10 @@ handlers:
 - url: /imgs
   static_dir: static/imgs
 
+- url: /admin/.*
+  script: admin.py
+  login: admin
+  auth_fail_action: unauthorized
+
 - url: .*
   script: main.py

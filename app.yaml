@@ -13,7 +13,6 @@ handlers:
 - url: /admin/.*
   script: admin.py
   login: admin
-  auth_fail_action: unauthorized
 
 - url: .*
   script: main.py

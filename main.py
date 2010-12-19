@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #
 import os
+import logging
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from google.appengine.ext.webapp import template
@@ -16,6 +17,8 @@ class MainHandler(webapp.RequestHandler):
         self.response.out.write(template.render(path, template_values))
 
 def main():
+    logging.getLogger().setLevel(logging.DEBUG)
+
     application = webapp.WSGIApplication([('/', MainHandler)],
                                          debug=True)
     util.run_wsgi_app(application)

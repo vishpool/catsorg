@@ -8,4 +8,9 @@
         <div>API Secret: <input type="text" name="api_secret" value="{{ api_secret }}"></input></div>
         <div><input type="submit" value="Setup Shelter"> <input type="reset" value="Reset"><i>{{ shelter_admin }}</i></div>
     </form>
+
+    <form action="/admin/" method="post">
+        <div><input type="submit" name="submit" value="Get Pets"></div>
+    </form>
+    
 </body></html>

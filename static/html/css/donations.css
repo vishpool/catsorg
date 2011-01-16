@@ -1,5 +1,6 @@
 @import url(styles.css);
 @import url(featured_pets.css);
+@import url(social_media.css);
 
 #main h2 {
 	margin: 0 0 10px;
@@ -20,6 +21,14 @@
 #main .content {
 	width: 738px;
 	margin: 0 20px 0 0;
+}
+
+#main .ad {
+	width: 468px;
+	height: 60px;
+	border: 1px solid #dd5f24;
+	margin: 20px auto;
+	background: #ccc;
 }
 
 .options,
@@ -59,9 +68,9 @@ a.btnDonation {
 		text-align: center;
 	}
 
-	.sidebar .ad {
+	#main .sidebar .ad {
 		width: 160px;
 		height: 600px;
 		border: 1px solid #ccc;
-		margin: 20px auto;
+		background: 0;
 	}

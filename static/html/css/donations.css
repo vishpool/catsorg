@@ -1,4 +1,5 @@
 @import url(styles.css);
+@import url(featured_pets.css);
 
 #main h2 {
 	margin: 0 0 10px;
@@ -21,7 +22,8 @@
 	margin: 0 20px 0 0;
 }
 
-.options {
+.options,
+.thankYou {
 	margin: 0 0 0 40px;
 }
 

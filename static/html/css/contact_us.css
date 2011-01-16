@@ -4,8 +4,8 @@
 	min-height: 400px;
 }
 
-#main .newsEventsRow,
-#main .newsEventsRow h2 {
+#page.contactUs #main,
+#page.contactUs #main h2 {
 	border-bottom: none;
 	text-align: center;
 }

@@ -398,12 +398,13 @@ body {
 	right: 0px;
 	background: #dd5f24;
 	width: 130px;
-	padding: 7px;
+	padding: 7px 6px 6px 7px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	font-weight: bold;
 	color: #fff;
+	text-align: center;
 }
 
 .featurePets .otherFeaturedPets {

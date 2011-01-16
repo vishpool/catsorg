@@ -1,17 +1,12 @@
 @import url(styles.css);
 
-.aboutUsRow {
-
-}
-
-.aboutUsRow h2 {
-	/*border-bottom: 1px solid #dd5f24;*/
+#main h2 {
 	margin: 0 0 10px;
 	font-size: 24px;
 	color: #dd5f24;
 }
 
-.aboutUsRow p {
+#main p {
 	margin: 0 0 20px;
 }
 

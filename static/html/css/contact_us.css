@@ -1,0 +1,11 @@
+@import url(styles.css);
+
+#main {
+	min-height: 400px;
+}
+
+#main .newsEventsRow,
+#main .newsEventsRow h2 {
+	border-bottom: none;
+	text-align: center;
+}

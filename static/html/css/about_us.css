@@ -1,0 +1,40 @@
+@import url(styles.css);
+
+.aboutUsRow {
+
+}
+
+.aboutUsRow h2 {
+	/*border-bottom: 1px solid #dd5f24;*/
+	margin: 0 0 10px;
+	font-size: 24px;
+	color: #dd5f24;
+}
+
+.aboutUsRow p {
+	margin: 0 0 20px;
+}
+
+.location .address,
+.location .map {
+	float: left;
+}
+
+.location .address {
+	width: 375px;
+	margin: 0 20px 0 0;
+}
+
+.map {
+	width: 425px;
+}
+
+.map iframe {
+	width: 425px;
+	height: 350px;
+	border: 1px solid #dd5f24;
+}
+
+p.whoIsCats {
+	margin: 0;
+}

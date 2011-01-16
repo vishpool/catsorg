@@ -6,15 +6,15 @@ import logging
 from django.utils import simplejson as json
 
 from admin import admin
+from google.appengine.api import memcache
 
 class PetFinderAPI:
     base = 'http://api.petfinder.com/'
-    token = None 
+    token = None
+    cache_ttl = 1*60
     
     def __init__(self):
-        logging.getLogger().setLevel(logging.DEBUG)
-        self.token = self.getCachedToken()
-        
+        logging.getLogger().setLevel(logging.DEBUG)        
         
     def getShelterPets(self):
         data = {'id': self.getShelterID()}
@@ -26,24 +26,30 @@ class PetFinderAPI:
         params = self.getParams(data)
         signed = self.getSigned(params)
         url = self.base + method + '?' + signed
-        
-        return json.loads(urllib2.urlopen(url).read())
+
+        key = md5.new(url).hexdigest()
+        res = memcache.get(key)
+        if res is not None:
+            logging.debug('Cached response (%s): %s', key, res)
+
+            return res
+        else:
+            res = json.loads(urllib2.urlopen(url).read())
+            logging.debug('Caching response (%s): %s', key, res)
+            memcache.add(key, res, self.cache_ttl)
+            
+            return res
         
     def getSigned(self, params):
         return params + '&sig=' + md5.new(self.getApiSecret() + params).hexdigest()
 
     def getToken(self):
-        if self.token is not None:
-            return self.token
-            
         data = {}
         res = self.getResponse('auth.getToken', data)
-        
-        return res['petfinder']['auth']['token']
+        token = res['petfinder']['auth']['token']
 
-    def getCachedToken(self):
-        return self.getToken()
-    
+        return token
+
     def getParams(self, data):
         params = 'key=' + self.getApiKey()
         for d in data: 

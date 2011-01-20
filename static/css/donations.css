@@ -1,0 +1,76 @@
+@import url(styles.css);
+@import url(featured_pets.css);
+@import url(social_media.css);
+
+#main h2 {
+	margin: 0 0 10px;
+	font-size: 24px;
+	color: #dd5f24;
+}
+
+#main h3 {
+	margin: 0 0 5px;
+	font-size: 18px;
+	color: #dd5f24;
+}
+
+#main p {
+	margin: 0 0 20px;
+}
+
+#main .content {
+	width: 738px;
+	margin: 0 20px 0 0;
+}
+
+#main .ad {
+	width: 468px;
+	height: 60px;
+	border: 1px solid #dd5f24;
+	margin: 20px auto;
+	background: #ccc;
+}
+
+.options,
+.thankYou {
+	margin: 0 0 0 40px;
+}
+
+a.btnDonation {
+	display: block;
+	position: relative;
+	left: 578px;
+	width: 100px;
+	padding: 10px 9px 9px 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin: 0 0 20px;
+	background: #dd5f24;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+}
+
+#main .sidebar {
+	width: 162px;
+}
+	.sidebar .payPalVerified {
+		padding: 10px 9px 9px 10px;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		background: #dd5f24;
+		font-size: 16px;
+		font-weight: bold;
+		color: #fff;
+		text-align: center;
+	}
+
+	#main .sidebar .ad {
+		width: 160px;
+		height: 600px;
+		border: 1px solid #ccc;
+		background: 0;
+	}

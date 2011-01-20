@@ -1,0 +1,44 @@
+#featuredPets {
+}
+
+	#featuredPets .pet {
+		position: relative;
+		float: left;
+		width: 226px;
+		height: 200px;
+		margin: 0 20px;
+		background: #ccc;
+	}
+	
+	#featuredPets .first,
+	#featuredPets .last {
+		margin: 0;
+	}
+	
+	#featuredPets .pet .image {
+		overflow: hidden;
+		width: 226px;
+		height: 200px;
+		background: #ff000;
+	}
+	
+	#featuredPets .pet .txt {
+		position: absolute;
+		bottom: 0;
+		z-index: 2;
+		width: 226px;
+		height: 50px;
+		background: rgba(255, 255, 255, .75);
+		text-align: center;
+	}
+	
+	#featuredPets .pet .txt a {
+		position: relative;
+		top: 2px;
+		margin: 0 10px;
+		font-size: 15px;
+		font-weight: bold;
+		line-height: 50px;
+		color: #dd5f24;
+		text-decoration: none;
+	}

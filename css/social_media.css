@@ -1,0 +1,29 @@
+#main .socialMedia {
+	position: relative;
+	top: 0;
+	right: 0;
+	width: 468px;
+	margin: 0 0 20px;
+}
+
+#main .socialMedia a.facebook,
+#main .socialMedia a.twitter {
+	display: block;
+	float: left;
+	width: 100px;
+	height: 45px;
+	font-size: 20px;
+	line-height: 45px;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+}
+
+#main .socialMedia a.facebook {
+	margin: 0 20px 0 0;
+	background: #3B5998;
+}
+
+#main .socialMedia a.twitter {
+	background: #c4e0ec;
+}

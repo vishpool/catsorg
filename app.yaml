@@ -7,8 +7,11 @@ handlers:
 - url: /css
   static_dir: static/css
 
-- url: /imgs
-  static_dir: static/imgs
+- url: /images
+  static_dir: static/images
+
+- url: /js
+  static_dir: static/js
 
 - url: /admin.*
   script: admin/admin.py

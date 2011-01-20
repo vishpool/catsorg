@@ -45,11 +45,10 @@ class MainHandler(webapp.RequestHandler):
         
         if action == 'Get Pets':
             api = PetFinderAPI()
-            logging.debug(self.request)
             pets = api.getShelterPets()
 
             for p in pets['petfinder']['pets']['pet']:
-                pet = '<p><img src="' + p['media']['photos']['photo'][0]['$t'] + '" />'
+                pet = '<img src="' + p['media']['photos']['photo'][1]['$t'] + '" />'
                 self.response.out.write(pet)
                 
 

@@ -16,6 +16,9 @@ class MainHandler(webapp.RequestHandler):
             'css': 'styles.css',
             'page_class': ''
         }
+        
+        if req == None:
+            req = 'index.html'
 
         path = os.path.join(os.path.dirname(__file__), req)
         self.response.out.write(template.render(path, template_values))

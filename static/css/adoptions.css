@@ -1,0 +1,48 @@
+@import url(styles.css);
+
+#main h2 {
+	margin: 0 0 10px;
+	font-size: 24px;
+	color: #dd5f24;
+}
+
+#pets {
+	float: left;
+	width: 728px;
+}
+
+#featuredPets .pet,
+#availablePets .pet {
+	float: left;
+	width: 163px;
+	height: 163px;
+	margin: 0 20px 20px 0;
+	background: url(../images/bg_petThumb.jpg) no-repeat;
+}
+	.pet .thumb {
+		width: 142px;
+		height: 117px;
+		border: 1px solid #777;
+		margin: 10px 9px 7px 9px;
+	}
+	
+	.pet .name {
+		height: 25px;
+		text-align: center;
+	}
+	
+	.pet .name a {
+		color: #777;
+		text-decoration: none;
+	}
+
+#featuredPets .pet.last,
+#availablePets .pet.last {
+	margin: 0;
+}
+
+#sidebar {
+	float: right;
+	width: 160px;
+	
+}

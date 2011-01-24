@@ -3,74 +3,32 @@
 {% block title %}{{ block.super }} - Home{% endblock title %}
 
 {% block main %}
-        <div class="featureRow clearfix">
-            <div class="featurePets clearfix">
-                <div class="featuredPet floatLeft clearfix">
-                    <div class="petImage">
-                        <img src="images/img_pet_placeholder.png" alt="Pet Placeholder" />
-                    </div><!-- close petImage -->
-                    <div class="petInfo">
-                        <h3>Say Hi To:</h3>
-                        <div class="petName">Macy</div>
-                        <div class="petDetails">
-                            <h3>Details:</h3>
-                            <ul>
-                            	<li class="animalType">Dog</li>
-                            	<li class="animalBreed">Mixed Breed</li>
-                            	<li class="animalSex">Female</li>
-                            	<li class="animalAge">Age 4</li>
-                            	<li class="animalOther">Great with kids!</li>
-                            </ul>
-                        </div><!-- close petDetails -->
-                        <div class="adoptButton">Click Here To Adopt!</div>
-                    </div><!-- close petInfo -->
-                </div><!-- close feauturedPet -->
-                <div class="otherFeaturedPets floatRight">
-                    <div class="feature current">
-                        <div class="featureArrow"></div>
-                        <div class="featThumb">
-                            <img src="images/img_featThumb_placeHolder.png" alt="" />
-                        </div><!-- close featThumb -->
-                        <div class="featName">
-                        Macy
-                        </div><!-- close featName -->
-                    </div><!-- close feature -->
-                    <div class="feature">
-                        <div class="featureArrow"></div>
-                        <div class="featThumb">
-                            <img src="images/img_featThumb_placeHolder.png" alt="" />
-                        </div><!-- close featThumb -->
-                        <div class="featName">
-                        Stacy
-                        </div><!-- close featName -->
-                    </div><!-- close feature -->
-                    <div class="feature last">
-                        <div class="featureArrow"></div>
-                        <div class="featThumb">
-                            <img src="images/img_featThumb_placeHolder.png" alt="" />
-                        </div><!-- close featThumb -->
-                        <div class="featName">
-                        Lacy
-                        </div><!-- close featName -->
-                    </div><!-- close feature -->
-                </div><!-- close otherFeaturedPets -->
-            </div><!-- close featurePets -->
-            <div class="featureAd">
-                <img src="images/ad_placeholder.png" alt="AD" />
-            </div><!-- close featurePets -->
-        </div><!-- close featureRow -->
-        <div class="newsEventsRow">
-            <h2>News &amp; Events</h2>
-        </div><!-- close newsEventsRow -->
-        <div class="otherItemsRow clearfix">
-            <div class="aboutUsBox">
-            	<h3>About Us</h3>
-            	<a href="" class="text">Learn more about what we do.</a>
-            </div><!-- close aboutUsBox -->
-            <div class="donateNowBox">
-            	<h3>Donate Now!</h3>
-            	<a href="" class="text">Click here to help out.</a>
-            </div><!-- close donateNowBox -->
-        </div><!-- close otherItemsRow -->
+    	<div id="pets">
+	        <h2>Featured Pets</h2>
+	        <div id="featuredPets" class="clearfix">
+	            {% for pet in featured %}
+	        	<div class="pet {% if forloop.last %}last{% endif %}">
+	        		<div class="thumb"><a href="http://www.petfinder.com/petdetail/{{ pet.id }}"><img src="{{ pet.photos.1.x }}" alt="{{ pet.name }}" style="max-width: 142px; max-height: 117px;"/></a></div>
+	        		<div class="name"><a href="http://www.petfinder.com/petdetail/{{ pet.id }}">{{ pet.name }}</a></div>
+	        	</div>
+	            {% endfor %}
+	        </div>
+	        <div id="showPets">
+	        </div>
+			<h2>Available Pets</h2>
+			<div id="availablePets" class="clearfix">
+	            {% for pet in pets %}
+	        	<div class="pet {% if forloop.last or forloop.counter|divisibleby:4 %}last{% endif %}">
+	        		<div class="thumb"><a href="http://www.petfinder.com/petdetail/{{ pet.id }}"><img src="{{ pet.photos.1.x }}" alt="{{ pet.name }}" style="max-width: 142px; max-height: 117px;"/></a></div>
+	        		<div class="name"><a href="http://www.petfinder.com/petdetail/{{ pet.id }}">{{ pet.name }}</a></div>
+	        	</div>
+	            {% endfor %}
+	        </div>
+        </div><!-- close pets -->
+        <div id="sidebar">
+        	<div class="ad">
+        		<img src="https://www.google.com/adsense/static/en_US/images/exampleWideSkyscraper.gif" alt="ad"/>
+        	</div>
+        </div><!-- close sidebar -->
 {% endblock main %}
 

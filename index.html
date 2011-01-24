@@ -1,65 +1,54 @@
 {% extends "base.html" %}
 
 {% block main %}
+{% if pets %}        
         <div class="featureRow clearfix">
             <div class="featurePets clearfix">
                 <div class="featuredPet floatLeft clearfix">
                     <div class="petImage">
-                        <img src="images/img_pet_placeholder.png" alt="Pet Placeholder" />
+                        <img src="{{ pets.0.photos.1.x }}" alt="{{ pets.0.name }}" style="max-width: 270px; max-height: 228px;" />
                     </div><!-- close petImage -->
                     <div class="petInfo">
                         <h3>Say Hi To:</h3>
-                        <div class="petName">Macy</div>
+                        <div class="petName">{{ pets.0.name }}</div>
                         <div class="petDetails">
                             <h3>Details:</h3>
                             <ul>
-                            	<li class="animalType">Dog</li>
-                            	<li class="animalBreed">Mixed Breed</li>
-                            	<li class="animalSex">Female</li>
-                            	<li class="animalAge">Age 4</li>
-                            	<li class="animalOther">Great with kids!</li>
+                            	{% if pets.0.animal %}<li class="animalType">{{ pets.0.animal }}</li>{% endif %}
+                            	{% if pets.0.breeds %}{% for breed in pets.0.breeds %}<li class="animalBreed">{{ breed }}</li>{% endfor %}{% endif %}
+                            	{% if pets.0.sex %}<li class="animalSex">{{ pets.0.sex }}</li>{% endif %}
+                            	{% if pets.0.age %}<li class="animalAge">{{ pets.0.age }}</li>{% endif %}
+                            	<!-- <li class="animalOther">Great with kids!</li> -->
                             </ul>
                         </div><!-- close petDetails -->
                         <div class="adoptButton">Click Here To Adopt!</div>
                     </div><!-- close petInfo -->
                 </div><!-- close feauturedPet -->
                 <div class="otherFeaturedPets floatRight">
-                    <div class="feature current">
+                    {% for pet in pets %}
+                    <div class="feature {% if forloop.first %}current{% endif %}{% if forloop.last %}last{% endif %}">
                         <div class="featureArrow"></div>
                         <div class="featThumb">
-                            <img src="images/img_featThumb_placeHolder.png" alt="" />
+                            <img src="{{ pet.photos.1.fpm }}" alt="{{ pet.name }}" style="max-width: 87px; max-height: 54px;" />
                         </div><!-- close featThumb -->
                         <div class="featName">
-                        Macy
+                        {{ pet.name }}
                         </div><!-- close featName -->
                     </div><!-- close feature -->
-                    <div class="feature">
-                        <div class="featureArrow"></div>
-                        <div class="featThumb">
-                            <img src="images/img_featThumb_placeHolder.png" alt="" />
-                        </div><!-- close featThumb -->
-                        <div class="featName">
-                        Stacy
-                        </div><!-- close featName -->
-                    </div><!-- close feature -->
-                    <div class="feature last">
-                        <div class="featureArrow"></div>
-                        <div class="featThumb">
-                            <img src="images/img_featThumb_placeHolder.png" alt="" />
-                        </div><!-- close featThumb -->
-                        <div class="featName">
-                        Lacy
-                        </div><!-- close featName -->
-                    </div><!-- close feature -->
+                    {% endfor %}
                 </div><!-- close otherFeaturedPets -->
             </div><!-- close featurePets -->
             <div class="featureAd">
                 <img src="images/ad_placeholder.png" alt="AD" />
             </div><!-- close featurePets -->
         </div><!-- close featureRow -->
+{% endif %}
+{% if news %}        
         <div class="newsEventsRow">
             <h2>News &amp; Events</h2>
+            {{ news }}
         </div><!-- close newsEventsRow -->
+{% endif %}
         <div class="otherItemsRow clearfix">
             <div class="aboutUsBox">
             	<h3>About Us</h3>

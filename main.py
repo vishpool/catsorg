@@ -2,11 +2,12 @@
 #
 import os
 import logging
+import random
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 from google.appengine.ext.webapp import template
+
 from petfinder.api import *
-import random
 
 class MainHandler(webapp.RequestHandler):
     def get(self, req, page):

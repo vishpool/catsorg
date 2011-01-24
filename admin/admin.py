@@ -5,9 +5,8 @@ import logging
 from google.appengine.ext import webapp
 from google.appengine.api import users
 from google.appengine.ext.webapp import util
-from google.appengine.ext import db
 from google.appengine.ext.webapp import template
-from petfinder.api import PetFinderAPI
+from petfinder.api import *
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
@@ -40,26 +39,19 @@ class MainHandler(webapp.RequestHandler):
         self.response.out.write(template.render(path, template_values))
         
     def post(self):
-    
         action = self.request.get('submit')
         
         if action == 'Get Pets':
             api = PetFinderAPI()
             pets = api.getShelterPets()
 
-            for p in pets['petfinder']['pets']['pet']:
-                pet = '<img src="' + p['media']['photos']['photo'][1]['$t'] + '" />'
-                self.response.out.write(pet)
+            for pet in pets:
+                p = '<a href="http://www.petfinder.com/petdetail/' + str(pet['id']) + '" title="' + pet['name'] + '">'
+                if pet['photos']:
+                    p += '<img src="' + pet['photos'][1]['t'] + '" />'
+                p += '</a>'
+                self.response.out.write(p)
                 
-
-class Shelter(db.Model):
-    shelter_id = db.StringProperty(required=True)
-    shelter_admin = db.UserProperty(required=True)
-    site_title = db.StringProperty(required=True)
-    site_footer = db.StringProperty(required=True)
-    api_key = db.StringProperty(required=True)
-    api_secret = db.StringProperty(required=True)
-    updated = db.DateTimeProperty(auto_now_add=True)
 
 class ShelterSetupHandler(webapp.RequestHandler):
     def post(self):

@@ -6,7 +6,9 @@ from google.appengine.ext import webapp
 from google.appengine.api import users
 from google.appengine.ext.webapp import util
 from google.appengine.ext.webapp import template
+
 from petfinder.api import *
+from admin.models import *
 
 class MainHandler(webapp.RequestHandler):
     def get(self):

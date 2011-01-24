@@ -13,6 +13,7 @@ class MainHandler(webapp.RequestHandler):
 
         api = PetFinderAPI()
         pets = api.getShelterPets()
+        pets = pets[0:3]
 
         values = {
             'page': page,

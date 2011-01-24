@@ -12,7 +12,7 @@ from admin.models import *
 class PetFinderAPI:
     base = 'http://api.petfinder.com/'
     token = None
-    cache_ttl = 5*60
+    cache_ttl = 10*60
     
     def __init__(self):
         logging.getLogger().setLevel(logging.DEBUG)        

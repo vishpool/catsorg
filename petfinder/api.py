@@ -1,32 +1,32 @@
 import os
 import sys
 import urllib2
-import string
 import md5
 import logging
-from google.appengine.api import memcache
 from django.utils import simplejson as json
 
 from admin.models import *
+from util import *
 
 class PetFinderAPI:
     base = 'http://api.petfinder.com/'
     token = None
-    cache_ttl = 10*60
+    shelter = None
     
     def __init__(self):
         logging.getLogger().setLevel(logging.DEBUG)        
         
     def getShelterPets(self, offset = 0, count = 25):
-        data = {'id': self.getShelterID(),
-                'count': count,
-                'offset': offset}
+        data = {
+            'id': self.getShelterID(),
+            'count': count,
+            'offset': offset}
         res = self.getResponse('shelter.getPets', data)
         
         pets = []
         for pet in res['petfinder']['pets']['pet']:
-            logging.debug('Parsing pet: %s', pet)
-            pet = {'id': pet['id']['$t'],
+            pet = {
+                'id': pet['id']['$t'],
                 'name': pet['name']['$t'],
                 'description': pet['description']['$t'],
                 'animal': self.getAnimal(pet),
@@ -67,7 +67,9 @@ class PetFinderAPI:
                     photos[photo['@id']] = {photo['@size']: photo['$t']}
                 else:
                     photos[photo['@id']][photo['@size']] = photo['$t']
-
+                if photo['@size'] == 'x':
+                    photos[photo['@id']]['info'] = ImageUtil.getImageInfo(photo['$t'])
+            
         return photos
     
     def getSize(self, pet):
@@ -94,20 +96,9 @@ class PetFinderAPI:
         params = self.getParams(data)
         signed = self.getSigned(params)
         url = self.base + method + '?' + signed
-
-        key = md5.new(url).hexdigest()
-        res = memcache.get(key)
-        if res is not None:
-            logging.debug('Cached response (%s): %s', key, res)
-
-            return res
-        else:
-            res = json.loads(urllib2.urlopen(url).read())
-            logging.debug('Caching response (%s): %s', key, res)
-            memcache.add(key, res, self.cache_ttl)
-            
-            return res
         
+        return json.loads(CacheUtil.getCachedResponse(url))
+
     def getSigned(self, params):
         return params + '&sig=' + md5.new(self.getApiSecret() + params).hexdigest()
 
@@ -127,7 +118,6 @@ class PetFinderAPI:
             
     def getApiKey(self):
         shelter = Shelter.get_by_key_name('shelter')
-        logging.debug(shelter)
 
         return shelter.api_key
 
@@ -140,4 +130,3 @@ class PetFinderAPI:
         shelter = Shelter.get_by_key_name('shelter')
 
         return shelter.shelter_id
-

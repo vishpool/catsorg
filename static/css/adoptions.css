@@ -19,22 +19,27 @@
 	margin: 0 20px 20px 0;
 	background: url(../images/bg_petThumb.jpg) no-repeat;
 }
-	.pet .thumb {
-		width: 142px;
-		height: 117px;
-		border: 1px solid #777;
-		margin: 10px 9px 7px 9px;
-	}
-	
-	.pet .name {
-		height: 25px;
-		text-align: center;
-	}
-	
-	.pet .name a {
-		color: #777;
-		text-decoration: none;
-	}
+.pet .thumb {
+	width: 142px;
+	height: 117px;
+	border: 1px solid #777;
+	margin: 10px 9px 7px 9px;
+	position: relative;
+}
+
+.pet .thumb img {
+    position: absolute;
+}
+
+.pet .name {
+	height: 25px;
+	text-align: center;
+}
+
+.pet .name a {
+	color: #777;
+	text-decoration: none;
+}
 
 #featuredPets .pet.last,
 #availablePets .pet.last {

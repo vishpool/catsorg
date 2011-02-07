@@ -2,7 +2,7 @@
 	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-	<title>{% block title %}CATS - Caring About The Strays - {{ title }}{% endblock title %}</title>
+	<title>{% block title %}{{ site_title }} - {{ title }}{% endblock title %}</title>
 	<link rel="stylesheet" href="css/{{ css }}" type="text/css" media="screen" charset="utf-8"/>
 </head>
 <body>
@@ -27,16 +27,16 @@
         <h1><img src="images/logo_main.png" alt="Caring About The Strays"/></h1>
         <div class="callUs">
             Thinking about adopting?
-            <div class="phoneNumber">Call 1-305-889-0840</div>
+            <div class="phoneNumber">Call Us: {{ shelter_phone }}</div>
         </div><!-- close callUs -->
     </div><!-- close header -->
     <div id="main" class="clearfix">
         {% block main %}{% endblock main %}
     </div><!-- close main -->
   <div id="footer">
-    {% block footer %}Copyrights 2010 Text Goes Here{% endblock footer %}
+    {% block footer %}{{ site_footer }}{% endblock footer %}
   </div><!-- close footer -->
 </div><!-- close page -->
-
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script> 
 </body>
 </html>

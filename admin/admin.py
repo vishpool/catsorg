@@ -1,14 +1,12 @@
-#!/usr/bin/env python
-#
 import os
 import logging
 from google.appengine.ext import webapp
 from google.appengine.api import users
 from google.appengine.ext.webapp import util
 from google.appengine.ext.webapp import template
+from django.utils import simplejson as json
 
 from petfinder.api import *
-from admin.models import *
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
@@ -17,25 +15,41 @@ class MainHandler(webapp.RequestHandler):
 
         if shelter is not None:
             template_values = {
-                'admin': user.nickname(),
-                'shelter_admin': shelter.shelter_admin.nickname() + ' at ' + shelter.updated.isoformat(),
                 'shelter_id': shelter.shelter_id,
-                'site_title': shelter.site_title,
-                'site_footer': shelter.site_footer,
                 'api_key': shelter.api_key,
                 'api_secret': shelter.api_secret,
+                'shelter_name': shelter.shelter_name,
+                'shelter_phone': shelter.shelter_phone,
+                'shelter_address': shelter.shelter_address,
+                'site_title': shelter.site_title,
+                'site_footer': shelter.site_footer,
+                'site_news': shelter.site_news,
+                'site_about_us_mission': shelter.site_about_us_mission,
+                'site_about_us_who': shelter.site_about_us_who,
             }
+            template_values['shelter_data'] = json.dumps(template_values)
+            template_values['admin'] = user.nickname()
+            template_values['shelter_admin'] = shelter.shelter_admin.nickname() + ' at ' + shelter.updated.isoformat()
+            
         else:
             template_values = {
                 'admin': user.nickname(),
                 'shelter_admin': user.nickname(),
                 'shelter_id': '',
-                'site_title': '',
-                'site_footer': '',
                 'api_key': '',
                 'api_secret': '',
+                'shelter_name': '',
+                'shelter_phone': '',
+                'shelter_address': '',
+                'site_title': '',
+                'site_footer': '',
+                'site_news': '',
+                'site_about_us_mission': '',
+                'site_about_us_who': '',
             }
-
+            template_values['shelter_data'] = json.dumps(template_values)
+            template_values['admin'] = user.nickname()
+            template_values['shelter_admin'] = user.nickname()
 
         path = os.path.join(os.path.dirname(__file__), 'admin.html')
         self.response.out.write(template.render(path, template_values))
@@ -60,10 +74,16 @@ class ShelterSetupHandler(webapp.RequestHandler):
         shelter = Shelter(key_name='shelter',
                             shelter_id=self.request.get('shelter_id'),
                             shelter_admin=users.get_current_user(),
+                            api_key=self.request.get('api_key'),
+                            api_secret=self.request.get('api_secret'),
+                            shelter_name=self.request.get('shelter_name'),
+                            shelter_phone=self.request.get('shelter_phone'),
+                            shelter_address=self.request.get('shelter_address'),
                             site_title=self.request.get('site_title'),
                             site_footer=self.request.get('site_footer'),
-                            api_key=self.request.get('api_key'),
-                            api_secret=self.request.get('api_secret'))
+                            site_news=self.request.get('site_news'),
+                            site_about_us_mission=self.request.get('site_about_us_mission'),
+                            site_about_us_who=self.request.get('site_about_us_who'))
 
         shelter.put()
         self.redirect('/admin/')

@@ -1,20 +1,59 @@
 <html><body>
+
     <div><b>Hello, Admin ({{ admin }})!</b></div>
-    <form action="/admin/shelter" method="post">
+    
+    <form name="form_shelter" action="/admin/shelter" method="post">
         <div>Shelter ID: <input type="text" name="shelter_id" value="{{ shelter_id }}"></input></div>
-        <div>Site Title: <textarea name="site_title" rows="3" cols="60">{{ site_title }}</textarea></div>
-        <div>Site Footer: <textarea name="site_footer" rows="3" cols="60">{{ site_footer }}</textarea></div>
         <div>API Key: <input type="text" name="api_key" value="{{ api_key }}"></input></div>
         <div>API Secret: <input type="text" name="api_secret" value="{{ api_secret }}"></input></div>
+        <div>Shelter Name: <input type="text" name="shelter_name" value="{{ shelter_name }}"></input></div>
+        <div>Shelter Phone: <input type="text" name="shelter_phone" value="{{ shelter_phone }}"></input></div>
+        <div>Shelter Address: <textarea name="shelter_address" rows="3" cols="60">{{ shelter_address }}</textarea></div>
+        <div>Site Title: <textarea name="site_title" rows="3" cols="60">{{ site_title }}</textarea></div>
+        <div>Site Footer: <textarea name="site_footer" rows="3" cols="60">{{ site_footer }}</textarea></div>
+        <div>Site News & Events: <textarea name="site_news" rows="5" cols="60">{{ site_news }}</textarea></div>
+        <div>Site > About Us > Mission: <textarea name="site_about_us_mission" rows="5" cols="60">{{ site_about_us_mission }}</textarea></div>
+        <div>Site > About Us > Who: <textarea name="site_about_us_who" rows="5" cols="60">{{ site_about_us_who }}</textarea></div>
         <div><input type="submit" value="Setup Shelter"> <input type="reset" value="Reset"><i>{{ shelter_admin }}</i></div>
     </form>
 
-    <form action="/admin/" method="post">
+    <form name="json_shelter" action="/admin/" method="post">
+        <div>Shelter Data: <textarea name="json" rows="5" cols="60">{{ shelter_data }}</textarea></div>
+        <div><input type="button" name="button" value="Populate Shelter" onclick="populateForm('shelter');"> <input type="reset" value="Reset"></div>
+    </form>
+    
+    <form name="form_pets" action="/admin/" method="post">
         <div><input type="submit" name="submit" value="Get Pets"></div>
     </form>
     
-    <form action="/admin/" method="post">
+    <form name="form_random_pets" action="/admin/" method="post">
         <div><input type="submit" name="submit" value="Get Random Pet"></div>
     </form>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script> 
+    <script type="text/javascript" src="/js/jquery.populate.min.js"></script>
+    <script type="text/javascript"> 
     
+        function populateForm(type){
+            var form		= document.forms['form_' + type];
+            var formJSON	= document.forms['json_' + type];
+            
+            var text		= formJSON['json'].value;
+            text			= text.replace(/(^\s+|\s+$)/, '');
+            text			= "(" + text + ");";
+            
+            try{
+                var json = eval(text)
+            } catch(err) {
+                alert('That appears to be invalid JSON!')
+                return false;
+            }
+            
+            $(form).populate(json, {debug:1});
+            
+            return false;
+        }
+    		
+    </script> 
+
 </body></html>

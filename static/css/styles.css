@@ -369,6 +369,12 @@ body {
 	width: 270px;
 	height: 228px;
 	margin: 0 10px 0 0;
+	position: relative;
+    border: solid 1px #ccc;
+}
+
+.featuredPet .petImage img {
+	position: absolute;
 }
 
 .featuredPet .petInfo {
@@ -427,10 +433,14 @@ body {
 
 .feature .featThumb {
 	padding: 9px 0 0 13px;
+	position: relative;
+	width: 87px;
+	height: 54px;
 }
 
 .feature .featThumb img {
 	border: 2px solid #fff;
+	position: absolute;
 }
 
 .feature .featName {

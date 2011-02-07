@@ -6,10 +6,10 @@
             <div class="featurePets clearfix">
                 <div class="featuredPet floatLeft clearfix">
                     <div class="petImage">
-                        <img src="{{ pets.0.photos.1.x }}" alt="{{ pets.0.name }}" style="max-width: 270px; max-height: 228px;" />
+                        <img src="{{ pets.0.photos.1.x }}" alt="{{ pets.0.name }}" {% cropimg pets.0.photos.1.info.1 pets.0.photos.1.info.2 270 228 %} />
                     </div><!-- close petImage -->
                     <div class="petInfo">
-                        <h3>Say Hi To:</h3>
+                        <h3>Say hi to:</h3>
                         <div class="petName">{{ pets.0.name }}</div>
                         <div class="petDetails">
                             <h3>Details:</h3>
@@ -21,7 +21,7 @@
                             	<!-- <li class="animalOther">Great with kids!</li> -->
                             </ul>
                         </div><!-- close petDetails -->
-                        <div class="adoptButton">Click Here To Adopt!</div>
+                        <div class="adoptButton">Read more!</div>
                     </div><!-- close petInfo -->
                 </div><!-- close feauturedPet -->
                 <div class="otherFeaturedPets floatRight">
@@ -29,7 +29,7 @@
                     <div class="feature {% if forloop.first %}current{% endif %}{% if forloop.last %}last{% endif %}">
                         <div class="featureArrow"></div>
                         <div class="featThumb">
-                            <img src="{{ pet.photos.1.fpm }}" alt="{{ pet.name }}" style="max-width: 87px; max-height: 54px;" />
+                            <img src="{{ pet.photos.1.x }}" alt="{{ pet.name }}" {% cropimg pet.photos.1.info.1 pet.photos.1.info.2 87 54 %} />
                         </div><!-- close featThumb -->
                         <div class="featName">
                         {{ pet.name }}
@@ -39,24 +39,24 @@
                 </div><!-- close otherFeaturedPets -->
             </div><!-- close featurePets -->
             <div class="featureAd">
-                <img src="images/ad_placeholder.png" alt="AD" />
+                <img src="https://www.google.com/adsense/static/en_US/images/300x250_img.jpg" alt="AD" />
             </div><!-- close featurePets -->
         </div><!-- close featureRow -->
 {% endif %}
-{% if news %}        
+{% if site_news %}        
         <div class="newsEventsRow">
             <h2>News &amp; Events</h2>
-            {{ news }}
+            {{ site_news }}
         </div><!-- close newsEventsRow -->
 {% endif %}
         <div class="otherItemsRow clearfix">
             <div class="aboutUsBox">
             	<h3>About Us</h3>
-            	<a href="" class="text">Learn more about what we do.</a>
+            	<a href="" class="text">Learn more about what we do!</a>
             </div><!-- close aboutUsBox -->
             <div class="donateNowBox">
             	<h3>Donate Now!</h3>
-            	<a href="" class="text">Click here to help out.</a>
+            	<a href="" class="text">Learn how you can help out!</a>
             </div><!-- close donateNowBox -->
         </div><!-- close otherItemsRow -->
 {% endblock main %}

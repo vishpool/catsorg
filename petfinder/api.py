@@ -17,37 +17,65 @@ class PetFinderAPI:
         logging.getLogger().setLevel(logging.DEBUG)        
         
     def getShelterPets(self, offset = 0, count = 25):
+
         data = {
             'id': self.getShelterID(),
             'count': count,
             'offset': offset}
-        pets = CacheUtil.getCachedContent(self.getParams(data));
         
-        if pets is not None:
-            return pets
-
         res = self.getResponse('shelter.getPets', data)
         
         pets = []
         for pet in res['petfinder']['pets']['pet']:
-            pet = {
-                'id': pet['id']['$t'],
-                'name': pet['name']['$t'],
-                'description': pet['description']['$t'],
-                'animal': self.getAnimal(pet),
-                'breeds': self.getBreeds(pet),
-                'age': pet['age']['$t'],
-                'size': self.getSize(pet),
-                'sex': self.getSex(pet),
-                'photos': self.getPhotos(pet)}
+            cpet = CacheUtil.getCachedContent('pet-' + str(pet['id']['$t']))
+            if cpet is not None:
+                pet = cpet
+            else:
+                pet = {
+                    'id': pet['id']['$t'],
+                    'name': pet['name']['$t'],
+                    'description': pet['description']['$t'],
+                    'animal': self.getAnimal(pet),
+                    'breeds': self.getBreeds(pet),
+                    'age': pet['age']['$t'],
+                    'size': self.getSize(pet),
+                    'sex': self.getSex(pet),
+                    'photos': self.getPhotos(pet)}
 
-            logging.debug('Parsed pet: %s', pet)
+                logging.debug('Parsed pet: %s', pet)
+                CacheUtil.setCachedContent('pet-' + str(pet['id']), pet);
+
             pets.append(pet)
 
-        CacheUtil.setCachedContent(self.getParams(data), pets);
                     
         return pets
     
+    def getShelterPet(self, pet_id):
+
+        data = {'id': pet_id}
+        
+        pet = CacheUtil.getCachedContent('pet-' + pet_id)
+        if pet is not None:
+            return pet
+        else:
+            pet = self.getResponse('pet.get', data)
+            if pet is not None: 
+                pet = {
+                    'id': pet['id']['$t'],
+                    'name': pet['name']['$t'],
+                    'description': pet['description']['$t'],
+                    'animal': self.getAnimal(pet),
+                    'breeds': self.getBreeds(pet),
+                    'age': pet['age']['$t'],
+                    'size': self.getSize(pet),
+                    'sex': self.getSex(pet),
+                    'photos': self.getPhotos(pet)}
+    
+                logging.debug('Parsed pet: %s', pet)
+                CacheUtil.setCachedContent('pet-' + str(pet['id']), pet);
+
+        return pet
+
     def getAnimal(self, pet):
         if pet['animal']:
             return pet['animal']['$t']

@@ -32,12 +32,6 @@ class MainHandler(webapp.RequestHandler):
 
     def get(self, req, page):
 
-#         try:
-#         except:
-#             self.response.out.write("Oops, unable to get shelter info!")
-#             return
-#
-
         shelter = Shelter.get_by_key_name('shelter')
         api = PetFinderAPI()
         pets = api.getShelterPets()
@@ -60,6 +54,7 @@ class MainHandler(webapp.RequestHandler):
         self.response.out.write(template.render(path, values))
 
 class AdoptionsHandler(webapp.RequestHandler):
+
     def get(self, req, page):
 
         shelter = Shelter.get_by_key_name('shelter')
@@ -82,7 +77,29 @@ class AdoptionsHandler(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), req)
         self.response.out.write(template.render(path, values))
 
+class AdoptionsPetHandler(webapp.RequestHandler):
+
+    def get(self, req, page, slug, pet_id):
+
+        shelter = Shelter.get_by_key_name('shelter')
+        api = PetFinderAPI()
+        pet = api.getShelterPet(pet_id)
+
+        values = {
+            'page': page,
+            'nav': 'adoptions',
+            'title': 'Adoptions',
+            'css': 'adoptions.css',
+            'page_class': 'adoptions',
+            'pet': pet,
+        }
+        values = dict(values, **MainHandler.getMainValues(shelter))
+
+        path = os.path.join(os.path.dirname(__file__), 'adoptions_pet.html')
+        self.response.out.write(template.render(path, values))
+
 class DonationsHandler(webapp.RequestHandler):
+
     def get(self, req, page):
 
         shelter = Shelter.get_by_key_name('shelter')
@@ -100,6 +117,7 @@ class DonationsHandler(webapp.RequestHandler):
         self.response.out.write(template.render(path, values))
 
 class AboutUsHandler(webapp.RequestHandler):
+
     def get(self, req, page):
 
         shelter = Shelter.get_by_key_name('shelter')
@@ -117,6 +135,7 @@ class AboutUsHandler(webapp.RequestHandler):
         self.response.out.write(template.render(path, values))
 
 class ContactUsHandler(webapp.RequestHandler):
+
     def get(self, req, page):
 
         shelter = Shelter.get_by_key_name('shelter')
@@ -134,10 +153,12 @@ class ContactUsHandler(webapp.RequestHandler):
         self.response.out.write(template.render(path, values))
 
 def main():
+
     logging.getLogger().setLevel(logging.DEBUG)
 
     application = webapp.WSGIApplication([('/((index).html)?', MainHandler),
-                                          ('/((adoptions).html)', AdoptionsHandler),
+                                          ('/((adoptions|adoptions_success).html)', AdoptionsHandler),
+                                          ('/((adoptions)-(.+)-(\d+).html)', AdoptionsPetHandler),
                                           ('/((donations|donations_success).html)', DonationsHandler),
                                           ('/((about_us).html)', AboutUsHandler),
                                           ('/((contact_us).html)', ContactUsHandler)],

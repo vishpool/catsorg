@@ -7,6 +7,7 @@ from google.appengine.ext.webapp import template
 
 from admin.models import *
 from petfinder.api import *
+from util import *
 
 template.register_template_library('templatetags.custom_tags')
 
@@ -24,6 +25,7 @@ class MainHandler(webapp.RequestHandler):
             'site_news': shelter.site_news,
             'site_about_us_mission': shelter.site_about_us_mission,
             'site_about_us_who': shelter.site_about_us_who,
+            'site_contact_us_emails': shelter.site_contact_us_emails,
         }
         
         return values
@@ -34,7 +36,8 @@ class MainHandler(webapp.RequestHandler):
 #         except:
 #             self.response.out.write("Oops, unable to get shelter info!")
 #             return
-# 
+#
+
         shelter = Shelter.get_by_key_name('shelter')
         api = PetFinderAPI()
         pets = api.getShelterPets()

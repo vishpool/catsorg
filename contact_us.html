@@ -2,10 +2,25 @@
 
 {% block main %}
         <h2>Contact Information</h2>
-		<p><strong>Our mailing address is:</strong><br/>
-		Caring About The Strays<br/>
-		P.O. Box 661160<br/>
-		Miami Springs, FL 33266<br/>
-		</p>
+		<div class="contactUsInfo">
+            <ul>
+                <li>
+                    <h3>Our mailing address</h3>
+                    {{ shelter_address|linebreaks }}
+                </li>
+                <li>
+                    <h3>Our phone number</h3>
+                    {{ shelter_phone|linebreaks }}
+                </li>
+            </ul>
+		</div>
+{% if site_contact_us_emails %}        
+		<div class="contactUsEmails">
+            <h3>Email us</h3>
+            <ul>
+               {{ site_contact_us_emails }}
+            </ul>
+		</div>
+{% endif %}
 {% endblock main %}
 

@@ -10,7 +10,7 @@ class CacheUtil:
 
     @staticmethod
     def getCachedResponse(url):
-        cache_ttl = 60*60
+        ttl = 60*60
 
         logging.getLogger().setLevel(logging.DEBUG)   
 
@@ -23,8 +23,31 @@ class CacheUtil:
         else:
             res = urlfetch.fetch(url, deadline=10).content
             logging.debug('Caching response (%s): %s', key, res)
-            memcache.add(key, res, cache_ttl)
+            memcache.add(key, res, ttl)
             
             return res
+
+    @staticmethod
+    def getCachedContent(key):
+        ttl = 60*60
+
+        logging.getLogger().setLevel(logging.DEBUG)   
+
+        key = md5.new(key).hexdigest()
+        data = memcache.get(key)
+        if data is not None:
+            logging.debug('Cached content (%s): %s', key, data)
+            
+        return data
+
+    @staticmethod
+    def setCachedContent(key, data):
+        ttl = 60*60
+
+        logging.getLogger().setLevel(logging.DEBUG)   
+
+        key = md5.new(key).hexdigest()
+        logging.debug('Caching content (%s): %s', key, data)
+        memcache.add(key, data, ttl)
         
     

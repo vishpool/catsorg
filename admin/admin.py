@@ -26,6 +26,7 @@ class MainHandler(webapp.RequestHandler):
                 'site_news': shelter.site_news,
                 'site_about_us_mission': shelter.site_about_us_mission,
                 'site_about_us_who': shelter.site_about_us_who,
+                'site_contact_us_emails': shelter.site_contact_us_emails,
             }
             template_values['shelter_data'] = json.dumps(template_values)
             template_values['admin'] = user.nickname()
@@ -46,6 +47,7 @@ class MainHandler(webapp.RequestHandler):
                 'site_news': '',
                 'site_about_us_mission': '',
                 'site_about_us_who': '',
+                'site_contact_us_emails': '',
             }
             template_values['shelter_data'] = json.dumps(template_values)
             template_values['admin'] = user.nickname()
@@ -62,6 +64,7 @@ class MainHandler(webapp.RequestHandler):
             pets = api.getShelterPets()
 
             for pet in pets:
+                logging.debug(pet['id'])
                 p = '<a href="http://www.petfinder.com/petdetail/' + str(pet['id']) + '" title="' + pet['name'] + '">'
                 if pet['photos']:
                     p += '<img src="' + pet['photos'][1]['t'] + '" />'
@@ -83,7 +86,8 @@ class ShelterSetupHandler(webapp.RequestHandler):
                             site_footer=self.request.get('site_footer'),
                             site_news=self.request.get('site_news'),
                             site_about_us_mission=self.request.get('site_about_us_mission'),
-                            site_about_us_who=self.request.get('site_about_us_who'))
+                            site_about_us_who=self.request.get('site_about_us_who'),
+                            site_contact_us_emails=self.request.get('site_contact_us_emails'))
 
         shelter.put()
         self.redirect('/admin/')

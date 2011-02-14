@@ -33,7 +33,7 @@ class ImageUtil:
     # See http://code.google.com/p/pyib/source/browse/trunk/img.py
     @staticmethod
     def getImageInfo(url):
-        cache_ttl = 60*60
+        cache_ttl = 60*60*24*30
 
         logging.getLogger().setLevel(logging.DEBUG)   
 

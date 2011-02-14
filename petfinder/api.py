@@ -21,6 +21,11 @@ class PetFinderAPI:
             'id': self.getShelterID(),
             'count': count,
             'offset': offset}
+        pets = CacheUtil.getCachedContent(self.getParams(data));
+        
+        if pets is not None:
+            return pets
+
         res = self.getResponse('shelter.getPets', data)
         
         pets = []
@@ -38,7 +43,9 @@ class PetFinderAPI:
 
             logging.debug('Parsed pet: %s', pet)
             pets.append(pet)
-            
+
+        CacheUtil.setCachedContent(self.getParams(data), pets);
+                    
         return pets
     
     def getAnimal(self, pet):
@@ -63,12 +70,12 @@ class PetFinderAPI:
         photos = {}
         if 'photo' in pet['media']['photos'].keys():
             for photo in pet['media']['photos']['photo']:
-                if photo['@id'] not in photos.keys():
-                    photos[photo['@id']] = {photo['@size']: photo['$t']}
+                if int(photo['@id']) not in photos.keys():
+                    photos[int(photo['@id'])] = {photo['@size']: photo['$t']}
                 else:
-                    photos[photo['@id']][photo['@size']] = photo['$t']
+                    photos[int(photo['@id'])][photo['@size']] = photo['$t']
                 if photo['@size'] == 'x':
-                    photos[photo['@id']]['info'] = ImageUtil.getImageInfo(photo['$t'])
+                    photos[int(photo['@id'])]['info'] = ImageUtil.getImageInfo(photo['$t'])
             
         return photos
     

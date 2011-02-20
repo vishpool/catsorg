@@ -14,23 +14,29 @@
 	margin: 0 20px 0 0;
 }
 
+#pet .header .stats {
+	font-style: oblique;
+}
+
 #pet .selectedImg {
 	float: left;
 	width: 400px;
 	height: 300px;
+	border: 1px solid #dd5f24;
 	margin: 0 20px 0 0;
 	background: #ccc;
 }
 
 #pet .thumbnails {
 	float: left;
-	width: 100px;
+	width: 60px;
 	margin: 0 20px 20px;
 }
 
 #pet .thumb {
-	width: 60px;
-	height: 60px;
+	width: 58px;
+	height: 58px;
+	border: 1px solid #dd5f24;
 	margin: 0 0 20px;
 	background: #ccc;
 }

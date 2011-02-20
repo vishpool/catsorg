@@ -1,0 +1,23 @@
+@import url(styles.css);
+@import url(social_media.css);
+
+#main h2 {
+	margin: 0 0 10px;
+	font-size: 24px;
+	color: #dd5f24;
+}
+
+#pet {
+	float: left;
+	width: 600px;
+	margin: 0 20px 0 0;
+}
+
+#sidebar {
+	float: right;
+	width: 300px;
+}
+
+#sidebar .featureAd {
+	margin: 0 0 20px 0;
+}

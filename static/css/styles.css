@@ -445,7 +445,7 @@ body {
 
 .feature .featName {
 	position: relative;
-	top: -1px;
+	top: 6px;
 	padding: 0 0 0 15px;
 	font-size: 11px;
 	line-height: 11px;

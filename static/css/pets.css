@@ -9,9 +9,21 @@
 }
 
 #pet {
+	position: relative;
 	float: left;
 	width: 600px;
 	margin: 0 20px 0 0;
+}
+
+#pet .btnAdoptMe {
+	position: absolute;
+	top: 0;
+	right: 88px;
+	width: auto;
+	padding: 8px 8px 7px;
+	background: #dd5f24;
+	font-weight: bold;
+	color: #fff;
 }
 
 #pet .header .stats {

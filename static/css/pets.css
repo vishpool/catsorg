@@ -8,6 +8,10 @@
 	color: #dd5f24;
 }
 
+#main p {
+	margin: 0 0 10px;
+}
+
 #pet {
 	position: relative;
 	float: left;

@@ -61,6 +61,43 @@
 	margin-bottom: 0;
 }
 
+#description {
+	margin: 0 0 40px;
+}
+
+#description p.seePetfinder {
+	text-align: right;
+}
+
+#description .seePetfinder a{
+	font-weight: bold;
+	color: #dd5f24;
+	text-decoration: none;
+}
+
+#description a.seePetfinder:hover {
+	text-decoration: underline;
+}
+
+#pet .shelterInfo {
+	position: relative;
+	width: 558px;
+	padding: 30px 20px 10px;
+	border: 1px dashed #dd5f24;
+	margin: 0 auto;
+}
+
+#pet .shelterInfo h2 {
+	position: absolute;
+	top: -24px;
+	left: 225px;
+	width: 150px;
+	padding: 10px;
+	background: #dd5f24;
+	color: #fff;
+	text-align: center;
+}
+
 #sidebar {
 	float: right;
 	width: 300px;

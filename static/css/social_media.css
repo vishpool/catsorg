@@ -6,11 +6,16 @@
 	margin: 0 0 20px;
 }
 
+
 #main .socialMedia a.facebook,
-#main .socialMedia a.twitter {
+#main .socialMedia a.twitter,
+#shareBar .print,
+#shareBar .email,
+#shareBar .facebook,
+#shareBar .twitter {
 	display: block;
 	float: left;
-	width: 100px;
+	width: 45px;
 	height: 45px;
 	font-size: 20px;
 	line-height: 45px;
@@ -19,11 +24,27 @@
 	text-decoration: none;
 }
 
-#main .socialMedia a.facebook {
+
+#main .socialMedia a.facebook,
+#shareBar .facebook {
 	margin: 0 20px 0 0;
 	background: #3B5998;
 }
 
-#main .socialMedia a.twitter {
+#main .socialMedia a.twitter,
+#shareBar .twitter {
 	background: #c4e0ec;
+}
+
+#shareBar {
+	margin: 0 0 20px 322px;
+}
+
+#shareBar .print {
+	background: #e54661;
+}
+
+#shareBar .email {
+	background: #fdf3c1;
+	color: #dea140;
 }

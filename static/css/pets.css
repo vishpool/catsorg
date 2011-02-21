@@ -53,6 +53,10 @@
 	background: #ccc;
 }
 
+#pet .last {
+	margin-bottom: 0;
+}
+
 #sidebar {
 	float: right;
 	width: 300px;

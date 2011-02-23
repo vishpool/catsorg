@@ -389,14 +389,11 @@ body {
 	height: 228px;
 }
 
-.featuredPet .petInfo h3 {
-	color: #dd5f24;
-}
-
 .petInfo .petName {
 	margin: 10px 0 10px 0;
 	font-size: 24px;
 	font-weight: bold;
+	color: #dd5f24;
 }
 
 .featuredPet .petDetails {
@@ -413,15 +410,14 @@ body {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	font-weight: bold;
-	color: #fff;
 	text-align: center;
 }
 
-.featurePets .one,
-.featurePets .two,
-.featurePets .three {
-	display: none;
+.petInfo .adoptButton a {
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
 }
 
 .featurePets .otherFeaturedPets {
@@ -450,8 +446,18 @@ body {
 	height: 54px;
 }
 
-.feature .featThumb img {
+.featThumb .crop {
+	position: absolute;
+	width: 87px;
+	height: 54px;
 	border: 2px solid #fff;
+	-moz-box-shadow: 0 0 1px #999;
+	-webkit-box-shadow: 0 0 1px #999;
+	box-shadow: 0 0 1px #999;
+	
+}
+
+.feature .featThumb img {
 	position: absolute;
 }
 
@@ -556,5 +562,6 @@ body {
 }
 
 #footer {
-	height: 100px;
+	padding: 20px;
+	text-align: center;
 }

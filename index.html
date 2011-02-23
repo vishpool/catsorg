@@ -4,26 +4,27 @@
 {% if pets %}
         <div class="featureRow clearfix">
             <div class="featurePets clearfix">
+                {% for pet in pets %}
                 <div class="featuredPet floatLeft clearfix">
                     <div class="petImage">
-                        <img src="{{ pets.0.photos.1.x }}" alt="{{ pets.0.name }}" {% cropimg pets.0.photos.1.info.1 pets.0.photos.1.info.2 270 228 %} />
+                        <img src="{{ pet.photos.1.x }}" alt="{{ pet.name }}" {% cropimg pet.photos.1.info.1 pet.photos.1.info.2 270 228 %} />
                     </div><!-- close petImage -->
                     <div class="petInfo">
-                        <h3>Say hi to:</h3>
-                        <div class="petName">{{ pets.0.name }}</div>
+                        <div class="petName">{{ pet.name }}</div>
                         <div class="petDetails">
                             <h3>Details:</h3>
                             <ul>
-                            	{% if pets.0.animal %}<li class="animalType">{{ pets.0.animal }}</li>{% endif %}
-                            	{% if pets.0.breeds %}{% for breed in pets.0.breeds %}<li class="animalBreed">{{ breed }}</li>{% endfor %}{% endif %}
-                            	{% if pets.0.sex %}<li class="animalSex">{{ pets.0.sex }}</li>{% endif %}
-                            	{% if pets.0.age %}<li class="animalAge">{{ pets.0.age }}</li>{% endif %}
+                            	{% if pet.animal %}<li class="animalType">{{ pet.animal }}</li>{% endif %}
+                            	{% if pet.breeds %}{% for breed in pet.breeds %}<li class="animalBreed">{{ breed }}</li>{% endfor %}{% endif %}
+                            	{% if pet.sex %}<li class="animalSex">{{ pet.sex }}</li>{% endif %}
+                            	{% if pet.age %}<li class="animalAge">{{ pet.age }}</li>{% endif %}
                             	<!-- <li class="animalOther">Great with kids!</li> -->
                             </ul>
                         </div><!-- close petDetails -->
-                        <div class="adoptButton"><a href="/adoptions-{{ pets.0.name|slugify }}-{{ pets.0.id }}.html">Read more!</a></div>
+                        <div class="adoptButton"><a href="/adoptions-{{ pet.name|slugify }}-{{ pet.id }}.html">Read more!</a></div>
                     </div><!-- close petInfo -->
                 </div><!-- close feauturedPet -->
+                {% endfor %}
                 <div class="otherFeaturedPets floatRight">
                     {% for pet in pets %}
                     <div class="feature {% if forloop.first %}current{% endif %}{% if forloop.last %}last{% endif %}">
@@ -60,4 +61,10 @@
             </div><!-- close donateNowBox -->
         </div><!-- close otherItemsRow -->
 {% endblock main %}
+
+{% block javascript %}
+{{ block.super }}
+<script src="js/jquery.featureList-1.0.0.js"></script>
+<script src="js/featureBox.js"></script>
+{% endblock javascript %}
 

@@ -17,5 +17,9 @@ handlers:
   script: admin/admin.py
   login: admin
 
+- url: /favicon.ico
+  static_files: static/images/favicon.png
+  upload: static/images/favicon.png
+
 - url: .*
   script: main.py

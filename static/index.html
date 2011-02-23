@@ -33,13 +33,53 @@
     <div id="main">
         <div class="featureRow clearfix">
             <div class="featurePets clearfix">
-                <div class="featuredPet floatLeft clearfix">
+                <div class="featuredPet one floatLeft clearfix">
                     <div class="petImage">
                         <img src="images/img_pet_placeholder.png" alt="Pet Placeholder" />
                     </div><!-- close petImage -->
                     <div class="petInfo">
                         <h3>Say Hi To:</h3>
                         <div class="petName">Macy</div>
+                        <div class="petDetails">
+                            <h3>Details:</h3>
+                            <ul>
+                            	<li class="animalType">Dog</li>
+                            	<li class="animalBreed">Mixed Breed</li>
+                            	<li class="animalSex">Female</li>
+                            	<li class="animalAge">Age 4</li>
+                            	<li class="animalOther">Great with kids!</li>
+                            </ul>
+                        </div><!-- close petDetails -->
+                        <div class="adoptButton">Click Here To Adopt!</div>
+                    </div><!-- close petInfo -->
+                </div><!-- close feauturedPet -->
+                <div class="featuredPet two floatLeft clearfix">
+                    <div class="petImage">
+                        <img src="images/img_pet_placeholder.png" alt="Pet Placeholder" />
+                    </div><!-- close petImage -->
+                    <div class="petInfo">
+                        <h3>Say Hi To:</h3>
+                        <div class="petName">Stacy</div>
+                        <div class="petDetails">
+                            <h3>Details:</h3>
+                            <ul>
+                            	<li class="animalType">Dog</li>
+                            	<li class="animalBreed">Mixed Breed</li>
+                            	<li class="animalSex">Female</li>
+                            	<li class="animalAge">Age 4</li>
+                            	<li class="animalOther">Great with kids!</li>
+                            </ul>
+                        </div><!-- close petDetails -->
+                        <div class="adoptButton">Click Here To Adopt!</div>
+                    </div><!-- close petInfo -->
+                </div><!-- close feauturedPet -->
+                <div class="featuredPet three floatLeft clearfix">
+                    <div class="petImage">
+                        <img src="images/img_pet_placeholder.png" alt="Pet Placeholder" />
+                    </div><!-- close petImage -->
+                    <div class="petInfo">
+                        <h3>Say Hi To:</h3>
+                        <div class="petName">Lacy</div>
                         <div class="petDetails">
                             <h3>Details:</h3>
                             <ul>
@@ -105,5 +145,13 @@
   </div><!-- close footer -->
 </div><!-- close page -->
 
+<script src="js/jquery-1.5.min.js"></script>
+<script src="js/jquery.featureList-1.0.0.js"></script>
+<script>
+	$('.otherFeaturedPets > .feature').featureList({
+		output: '.featuredPet',
+		start_item: 0
+	});
+</script>
 </body>
 </html>

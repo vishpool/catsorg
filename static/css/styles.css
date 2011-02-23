@@ -353,6 +353,7 @@ body {
 }
 
 #main .featurePets {
+	position: relative;
 	float: left;
 	width: 598px;
 	height: 248px;
@@ -361,6 +362,9 @@ body {
 }
 
 .featurePets .featuredPet {
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 455px;
 	margin: 10px;
 }
@@ -414,6 +418,12 @@ body {
 	text-align: center;
 }
 
+.featurePets .one,
+.featurePets .two,
+.featurePets .three {
+	display: none;
+}
+
 .featurePets .otherFeaturedPets {
 	width: 115px;
 	height: 248px;
@@ -422,6 +432,7 @@ body {
 
 .featurePets .otherFeaturedPets .feature {
 	height: 83px;
+	cursor: pointer;
 }
 
 .otherFeaturedPets .feature.last {

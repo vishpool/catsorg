@@ -30,21 +30,18 @@
     </div><!-- close header -->
     <div id="main" class="clearfix">
     	<div id="pet">
-    		<div class="btnAdoptMe">Adopt Me!</div>
     		<div class="header">
 	    		<h2>Name</h2>
 	    		<div class="stats">Cat &ndash; Brown &ndash; 12yrs. old &ndash; Male</div>
     		</div><!-- close header -->
-    		<div class="images clearfix">
-    			<div class="selectedImg">
-    				<img src="" alt="" />
-    			</div><!-- close selectedImg -->
-    			<div class="thumbnails">
-    				<div class="thumb"><img src="" alt="" /></div>
-    				<div class="thumb"><img src="" alt="" /></div>
-    				<div class="thumb"><img src="" alt="" /></div>
-    				<div class="thumb last"><img src="" alt="" /></div>
-    			</div><!-- close thumbnails -->
+    		<div id="images" class="images clearfix">
+				<div class="slides_container"> 
+					<a href="#" title="" target="_blank"><img src="images/slides_slide-1.jpg" width="570" height="270" alt="Slide 1"></a> 
+					<a href="#" title="" target="_blank"><img src="images/slides_slide-2.jpg" width="570" height="270" alt="Slide 2"></a> 
+					<a href="#" title="" target="_blank"><img src="images/slides_slide-3.jpg" width="570" height="270" alt="Slide 3"></a> 
+				</div> 
+				<a href="#" class="prev"><img src="images/slides_arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a> 
+				<a href="#" class="next"><img src="images/slides_arrow-next.png" width="24" height="43" alt="Arrow Next"></a> 
     		</div><!-- close images -->
     		<div id="shareBar" class="clearfix">
     			<div class="print">P</div>
@@ -85,6 +82,19 @@
   <div id="footer">
   </div><!-- close footer -->
 </div><!-- close page -->
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script> 
+	<script src="js/jquery.easing.min.js"></script> 
+	<script src="js/jquery.slides.min.js"></script> 
+	<script> 
+		$(function(){
+			$('#images').slides({
+				preload: true,
+				preloadImage: 'images/slides_loading.gif',
+				play: 5000,
+				pause: 2500,
+				hoverPause: true
+			});
+		});
+	</script> 
 </body>
 </html>

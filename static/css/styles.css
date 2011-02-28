@@ -259,6 +259,7 @@ body {
 	display: block;
 	height: 45px;
 	padding: 0 20px;
+	background: url(../images/bg_menu_paw.png);
 	font-size: 16px;
 	line-height: 45px;
 	color: #fff;
@@ -304,17 +305,21 @@ body {
 /** header */
 #header {
 	position: relative;
-	height: 165px;
+	height: 120px;
 	background: #fff;
 }
 
 #header h1 {
 	margin: 10px 0 0 20px;
+	font-family: 'Crafty Girls', Georgia, serif;
+	font-size: 36px;
+	color: #dd5f24;
 }
 
 #header h1 img {
 	padding: 0;
-	margin: 0 0 0 125px;
+	margin: 0 20px 0 40px;
+	vertical-align: middle;
 }
 
 #header .callUs {

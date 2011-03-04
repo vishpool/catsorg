@@ -275,7 +275,7 @@ body {
 /** socialMedia */
 .socialMedia {
 	position: absolute;
-	top: 0;
+	top: 10px;
 	right: 20px;
 	z-index: 2;
 }
@@ -293,6 +293,7 @@ body {
 }
 
 .socialMedia a.facebook {
+	margin: 0 5px 0 0;
 	background: url(../images/icn_facebook_32.png) no-repeat;
 	color: #fff;
 }

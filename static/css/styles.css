@@ -258,8 +258,8 @@ body {
 #navigation ul li a {
 	display: block;
 	height: 45px;
-	padding: 0 20px;
-	background: url(../images/bg_menu_paw.png);
+	padding: 0 20px 0 40px;
+	background: url(../images/bg_menu_paw2.png) no-repeat 5px 45%;
 	font-size: 16px;
 	line-height: 45px;
 	color: #fff;
@@ -268,7 +268,7 @@ body {
 
 #navigation ul li.current a,
 #navigation ul li a:hover {
-	background: #fff;
+	background: #fff url(../images/bg_menu_paw.png) no-repeat 5px 45%;
 	color: #dd5f24;
 }
 
@@ -284,8 +284,8 @@ body {
 .socialMedia a.twitter {
 	display: block;
 	float: left;
-	width: 45px;
-	height: 45px;
+	width: 32px;
+	height: 32px;
 	font-size: 20px;
 	line-height: 45px;
 	text-align: center;
@@ -293,12 +293,12 @@ body {
 }
 
 .socialMedia a.facebook {
-	background: #3B5998;
+	background: url(../images/icn_facebook_32.png) no-repeat;
 	color: #fff;
 }
 
 .socialMedia a.twitter {
-	background: #c4e0ec;
+	background: url(../images/icn_twitter_32.png) no-repeat;
 	color: #fff;
 }
 
@@ -310,7 +310,7 @@ body {
 }
 
 #header h1 {
-	margin: 10px 0 0 20px;
+	margin: 20px 0 0 0;
 	font-family: 'Crafty Girls', Georgia, serif;
 	font-size: 36px;
 	color: #dd5f24;
@@ -318,7 +318,7 @@ body {
 
 #header h1 img {
 	padding: 0;
-	margin: 0 20px 0 40px;
+	margin: 0 20px 0 30px;
 	vertical-align: middle;
 }
 

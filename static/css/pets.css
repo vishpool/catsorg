@@ -30,9 +30,39 @@
 	color: #fff;
 }
 
+#pet .header {
+	margin: 0 0 0 30px;
+}
+
 #pet .header .stats {
 	font-style: oblique;
 }
+
+
+#images .slides_container {
+	position: relative;
+	width: 540px;
+	height: 270px;
+	overflow: hidden;
+	margin: 0 30px;
+	background: url(images/slides_loading.gif) 50% 50% no-repeat;
+}
+
+#images .prev,
+#images .next {
+	position: absolute;
+	top: 149px;
+}
+
+#images .prev {
+	left: 0;
+}
+
+#images .next {
+	position: absolute;
+	left: 576px;
+}
+
 
 #pet .selectedImg {
 	float: left;

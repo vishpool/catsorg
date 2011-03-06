@@ -18,7 +18,12 @@ template.register_template_library('templatetags.custom_tags')
 class MainHandler(webapp.RequestHandler):
     
     @staticmethod
-    def getMainValues(shelter):
+    def getMainValues():
+
+        shelter = CacheUtil.getCachedContent('shelter')
+        if shelter is None:
+            shelter = Shelter.get_by_key_name('shelter')
+            CacheUtil.setCachedContent('shelter', shelter)
     
         values = {
             'site_title': shelter.site_title,
@@ -36,7 +41,6 @@ class MainHandler(webapp.RequestHandler):
 
     def get(self, req, page):
 
-        shelter = Shelter.get_by_key_name('shelter')
         api = PetFinderAPI()
         pets = api.getShelterPets()
         pets = pets[0:3]
@@ -49,7 +53,7 @@ class MainHandler(webapp.RequestHandler):
             'page_class': '',
             'pets': pets,
         }
-        values = dict(values, **MainHandler.getMainValues(shelter))
+        values = dict(values, **MainHandler.getMainValues())
         
         if req == None:
             req = 'index.html'
@@ -61,7 +65,6 @@ class AdoptionsHandler(webapp.RequestHandler):
 
     def get(self, req, page):
 
-        shelter = Shelter.get_by_key_name('shelter')
         api = PetFinderAPI()
         pets = api.getShelterPets()
         featured = random.sample(pets, 4)
@@ -76,7 +79,7 @@ class AdoptionsHandler(webapp.RequestHandler):
             'featured': featured,
             'pets': pets
         }
-        values = dict(values, **MainHandler.getMainValues(shelter))
+        values = dict(values, **MainHandler.getMainValues())
 
         path = os.path.join(os.path.dirname(__file__), req)
         self.response.out.write(template.render(path, values))
@@ -85,7 +88,6 @@ class AdoptionsPetHandler(webapp.RequestHandler):
 
     def get(self, req, page, slug, pet_id):
 
-        shelter = Shelter.get_by_key_name('shelter')
         api = PetFinderAPI()
         pet = api.getShelterPet(pet_id)
 
@@ -97,7 +99,7 @@ class AdoptionsPetHandler(webapp.RequestHandler):
             'page_class': 'adoptions',
             'pet': pet,
         }
-        values = dict(values, **MainHandler.getMainValues(shelter))
+        values = dict(values, **MainHandler.getMainValues())
 
         path = os.path.join(os.path.dirname(__file__), 'adoptions_pet.html')
         self.response.out.write(template.render(path, values))
@@ -106,7 +108,6 @@ class ApplicationHandler(webapp.RequestHandler):
 
     def get(self, req, page, slug, pet_id):
 
-        shelter = Shelter.get_by_key_name('shelter')
         api = PetFinderAPI()
         pet = api.getShelterPet(pet_id)
 
@@ -118,7 +119,7 @@ class ApplicationHandler(webapp.RequestHandler):
             'page_class': 'application',
             'pet': pet,
         }
-        values = dict(values, **MainHandler.getMainValues(shelter))
+        values = dict(values, **MainHandler.getMainValues())
 
         path = os.path.join(os.path.dirname(__file__), 'application.html')
         self.response.out.write(template.render(path, values))
@@ -127,8 +128,6 @@ class DonationsHandler(webapp.RequestHandler):
 
     def get(self, req, page):
 
-        shelter = Shelter.get_by_key_name('shelter')
-            
         values = {
             'page': page,
             'nav': 'donations',
@@ -136,7 +135,7 @@ class DonationsHandler(webapp.RequestHandler):
             'css': 'donations.css',
             'page_class': 'donations'
         }
-        values = dict(values, **MainHandler.getMainValues(shelter))
+        values = dict(values, **MainHandler.getMainValues())
 
         path = os.path.join(os.path.dirname(__file__), req)
         self.response.out.write(template.render(path, values))
@@ -145,8 +144,6 @@ class AboutUsHandler(webapp.RequestHandler):
 
     def get(self, req, page):
 
-        shelter = Shelter.get_by_key_name('shelter')
-
         values = {
             'page': page,
             'nav': 'about_us',
@@ -154,7 +151,7 @@ class AboutUsHandler(webapp.RequestHandler):
             'css': 'about_us.css',
             'page_class': 'aboutUs'
         }
-        values = dict(values, **MainHandler.getMainValues(shelter))
+        values = dict(values, **MainHandler.getMainValues())
 
         path = os.path.join(os.path.dirname(__file__), req)
         self.response.out.write(template.render(path, values))
@@ -163,8 +160,6 @@ class ContactUsHandler(webapp.RequestHandler):
 
     def get(self, req, page):
 
-        shelter = Shelter.get_by_key_name('shelter')
-
         values = {
             'page': page,
             'nav': 'contact_us',
@@ -172,7 +167,7 @@ class ContactUsHandler(webapp.RequestHandler):
             'css': 'contact_us.css',
             'page_class': 'contactUs'
         }
-        values = dict(values, **MainHandler.getMainValues(shelter))
+        values = dict(values, **MainHandler.getMainValues())
 
         path = os.path.join(os.path.dirname(__file__), req)
         self.response.out.write(template.render(path, values))

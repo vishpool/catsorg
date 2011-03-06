@@ -9,7 +9,13 @@
                     {{ pet.animal }}
                     {% if pet.breeds %}{% for breed in pet.breeds %} &bull; {{ breed }} {% endfor %}{% endif %}
                     {% if pet.sex %} &bull; {{ pet.sex }} {% endif %}
-                    {% if pet.age %} &bull; {{ pet.age }} {% endif %}</div>
+                    {% if pet.age %} &bull; {{ pet.age }} {% endif %}
+                </div>
+                {%if req.META.HTTP_REFERER %}
+	    		<div class="back">
+                    <a href="{{ req.META.HTTP_REFERER }}" target="_blank">Back &raquo;</a>
+                </div>
+                {% endif %}
     		</div><!-- close header -->
     		<div id="images" class="images clearfix">
 				<div class="slides_container"> 

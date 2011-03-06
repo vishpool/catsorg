@@ -46,6 +46,7 @@ class MainHandler(webapp.RequestHandler):
         pets = pets[0:3]
 
         values = {
+            'req': req,
             'page': page,
             'nav': 'index',
             'title': 'Home',
@@ -71,6 +72,7 @@ class AdoptionsHandler(webapp.RequestHandler):
         pets = pets[0:12]
 
         values = {
+            'req': req,
             'page': page,
             'nav': 'adoptions',
             'title': 'Adoptions',
@@ -92,6 +94,7 @@ class AdoptionsPetHandler(webapp.RequestHandler):
         pet = api.getShelterPet(pet_id)
 
         values = {
+            'req': req,
             'page': page,
             'nav': 'adoptions',
             'title': 'Adoptions',
@@ -112,6 +115,7 @@ class ApplicationHandler(webapp.RequestHandler):
         pet = api.getShelterPet(pet_id)
 
         values = {
+            'req': req,
             'page': page,
             'nav': 'adoptions',
             'title': 'Adoption Application',
@@ -129,6 +133,7 @@ class DonationsHandler(webapp.RequestHandler):
     def get(self, req, page):
 
         values = {
+            'req': req,
             'page': page,
             'nav': 'donations',
             'title': 'Donations',
@@ -145,6 +150,7 @@ class AboutUsHandler(webapp.RequestHandler):
     def get(self, req, page):
 
         values = {
+            'req': req,
             'page': page,
             'nav': 'about_us',
             'title': 'About Us',
@@ -161,6 +167,7 @@ class ContactUsHandler(webapp.RequestHandler):
     def get(self, req, page):
 
         values = {
+            'req': req,
             'page': page,
             'nav': 'contact_us',
             'title': 'Contact Us',

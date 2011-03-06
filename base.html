@@ -25,7 +25,7 @@
         </div><!-- close socialMedia -->
     </div><!-- close navigation -->
     <div id="header">
-        <h1><img src="images/logo.png" alt="{{ shelter_name }}"/>{{ shelter_name }}</h1>
+        <h1><img src="images/logo_main.png" alt="{{ shelter_name }}"/></h1>
         <div class="callUs">
             Thinking about adopting?
             <div class="phoneNumber">Call Us: {{ shelter_phone }}</div>
@@ -35,7 +35,7 @@
         {% block main %}{% endblock main %}
     </div><!-- close main -->
   <div id="footer">
-    {% block footer %}{{ site_footer }}{% endblock footer %}
+    {% block footer %}{{ site_footer }} <a href="http://www.petfinder.com"><img src="http://www.petfinder.com/images/members/powered-by-petfinder.png"/></a> and <a href="http://code.google.com/appengine/"><img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif" alt="Powered by Google App Engine" /></a>{% endblock footer %}
   </div><!-- close footer -->
 </div><!-- close page -->
 {% block javascript %}

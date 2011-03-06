@@ -3,6 +3,7 @@ import sys
 import urllib2
 import md5
 import logging
+import re
 from django.utils import simplejson as json
 
 from admin.models import *
@@ -34,7 +35,7 @@ class PetFinderAPI:
                 pet = {
                     'id': pet['id']['$t'],
                     'name': pet['name']['$t'],
-                    'description': pet['description']['$t'],
+                    'description': self.getDescription(pet['description']['$t']),
                     'animal': self.getAnimal(pet),
                     'breeds': self.getBreeds(pet),
                     'age': pet['age']['$t'],
@@ -52,7 +53,9 @@ class PetFinderAPI:
     
     def getShelterPet(self, pet_id):
 
-        data = {'id': pet_id}
+        data = {
+            'id': pet_id,
+            'token': self.getToken()}
         
         pet = CacheUtil.getCachedContent('pet-' + pet_id)
         if pet is not None:
@@ -63,7 +66,7 @@ class PetFinderAPI:
                 pet = {
                     'id': pet['id']['$t'],
                     'name': pet['name']['$t'],
-                    'description': pet['description']['$t'],
+                    'description': self.getDescription(pet['description']['$t']),
                     'animal': self.getAnimal(pet),
                     'breeds': self.getBreeds(pet),
                     'age': pet['age']['$t'],
@@ -75,6 +78,10 @@ class PetFinderAPI:
                 CacheUtil.setCachedContent('pet-' + str(pet['id']), pet);
 
         return pet
+
+    def getDescription(self, desc):
+        desc = re.sub('</?(form|input|center|h5|p|font)*>', '', desc.partition('<form')[0])
+        return desc
 
     def getAnimal(self, pet):
         if pet['animal']:
@@ -138,11 +145,12 @@ class PetFinderAPI:
         return params + '&sig=' + md5.new(self.getApiSecret() + params).hexdigest()
 
     def getToken(self):
-        data = {}
-        res = self.getResponse('auth.getToken', data)
-        token = res['petfinder']['auth']['token']
+        if self.token is None:
+            data = {}
+            res = self.getResponse('auth.getToken', data)
+            self.token = res['petfinder']['auth']['token']['$t']
 
-        return token
+        return self.token
 
     def getParams(self, data):
         params = 'key=' + self.getApiKey()

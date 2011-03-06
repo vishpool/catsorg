@@ -12,7 +12,7 @@
                     <div class="petInfo">
                         <div class="petName">{{ pet.name }}</div>
                         <div class="petDetails">
-                            <h3>Details:</h3>
+                            <!-- <h3>Details:</h3> -->
                             <ul>
                             	{% if pet.animal %}<li class="animalType">{{ pet.animal }}</li>{% endif %}
                             	{% if pet.breeds %}{% for breed in pet.breeds %}<li class="animalBreed">{{ breed }}</li>{% endfor %}{% endif %}
@@ -21,7 +21,7 @@
                             	<!-- <li class="animalOther">Great with kids!</li> -->
                             </ul>
                         </div><!-- close petDetails -->
-                        <div class="adoptButton"><a href="/adoptions-{{ pet.name|slugify }}-{{ pet.id }}.html">Read more!</a></div>
+                        <div class="adoptButton"><a class="btnAction" href="/adoptions-{{ pet.name|slugify }}-{{ pet.id }}.html">Read more!</a></div>
                     </div><!-- close petInfo -->
                 </div><!-- close feauturedPet -->
                 {% endfor %}
@@ -56,19 +56,19 @@
             <div class="aboutUsBox">
             	<h3>About Us</h3>
             	<img src="images/img_aboutus.jpg" alt="Find out more about us!" />
-            	<a href="" class="text">Learn more about what we do!</a>
+            	<a href="about_us.html" class="text">Learn more about what we do!</a>
             </div><!-- close aboutUsBox -->
             <div class="donateNowBox">
-            	<h3>Donate Now!</h3>
+            	<h3>Donations</h3>
 				<img src="images/img_donate.jpg" alt="Donate Now!" />
-            	<a href="" class="text">Learn how you can help out!</a>
+            	<a href="donations.html" class="text">Learn how you can help out!</a>
             </div><!-- close donateNowBox -->
         </div><!-- close otherItemsRow -->
 {% endblock main %}
 
 {% block javascript %}
 {{ block.super }}
-<script type="text/javascript" src="js/jquery.featureList-1.0.0.js"></script>
-<script type="text/javascript" src="js/featureBox.js"></script>
+    <script type="text/javascript" src="js/jquery.featureList-1.0.0.js"></script>
+    <script type="text/javascript" src="js/featureBox.js"></script>
 {% endblock javascript %}
 

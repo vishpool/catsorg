@@ -1,4 +1,8 @@
 import os
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+from google.appengine.dist import use_library
+use_library('django', '1.2')
+
 import logging
 import random
 from google.appengine.ext import webapp
@@ -89,13 +93,34 @@ class AdoptionsPetHandler(webapp.RequestHandler):
             'page': page,
             'nav': 'adoptions',
             'title': 'Adoptions',
-            'css': 'adoptions.css',
+            'css': 'adoptions_pet.css',
             'page_class': 'adoptions',
             'pet': pet,
         }
         values = dict(values, **MainHandler.getMainValues(shelter))
 
         path = os.path.join(os.path.dirname(__file__), 'adoptions_pet.html')
+        self.response.out.write(template.render(path, values))
+
+class ApplicationHandler(webapp.RequestHandler):
+
+    def get(self, req, page, slug, pet_id):
+
+        shelter = Shelter.get_by_key_name('shelter')
+        api = PetFinderAPI()
+        pet = api.getShelterPet(pet_id)
+
+        values = {
+            'page': page,
+            'nav': 'adoptions',
+            'title': 'Adoption Application',
+            'css': 'adoptions_pet.css',
+            'page_class': 'application',
+            'pet': pet,
+        }
+        values = dict(values, **MainHandler.getMainValues(shelter))
+
+        path = os.path.join(os.path.dirname(__file__), 'application.html')
         self.response.out.write(template.render(path, values))
 
 class DonationsHandler(webapp.RequestHandler):
@@ -159,6 +184,7 @@ def main():
     application = webapp.WSGIApplication([('/((index).html)?', MainHandler),
                                           ('/((adoptions|adoptions_success).html)', AdoptionsHandler),
                                           ('/((adoptions)-(.+)-(\d+).html)', AdoptionsPetHandler),
+                                          ('/((application)-(.+)-(\d+).html)', ApplicationHandler),
                                           ('/((donations|donations_success).html)', DonationsHandler),
                                           ('/((about_us).html)', AboutUsHandler),
                                           ('/((contact_us).html)', ContactUsHandler)],

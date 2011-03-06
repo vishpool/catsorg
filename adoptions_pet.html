@@ -2,33 +2,77 @@
 
 {% block main %}
 {% if pet %}
-        <div class="featureRow clearfix">
-            <div class="featurePets clearfix">
-                <div class="featuredPet floatLeft clearfix">
-                    <div class="petImage">
-                        <img src="{{ pet.photos.1.x }}" alt="{{ pet.name }}" {% cropimg pet.photos.1.info.1 pet.photos.1.info.2 270 228 %} />
-                    </div><!-- close petImage -->
-                    <div class="petInfo">
-                        <h3>Say hi to:</h3>
-                        <div class="petName">{{ pet.name }}</div>
-                        <div class="petDetails">
-                            <h3>Details:</h3>
-                            <ul>
-                            	{% if pet.animal %}<li class="animalType">{{ pet.animal }}</li>{% endif %}
-                            	{% if pet.breeds %}{% for breed in pet.breeds %}<li class="animalBreed">{{ breed }}</li>{% endfor %}{% endif %}
-                            	{% if pet.sex %}<li class="animalSex">{{ pet.sex }}</li>{% endif %}
-                            	{% if pet.age %}<li class="animalAge">{{ pet.age }}</li>{% endif %}
-                            	<!-- <li class="animalOther">Great with kids!</li> -->
-                            </ul>
-                        </div><!-- close petDetails -->
-                        <div class="adoptButton">Read more!</div>
-                    </div><!-- close petInfo -->
-                </div><!-- close feauturedPet -->
-            </div><!-- close featurePets -->
-            <div class="featureAd">
-                <img src="https://www.google.com/adsense/static/en_US/images/300x250_img.jpg" alt="AD" />
-            </div><!-- close featurePets -->
-        </div><!-- close featureRow -->
+    	<div id="pet">
+    		<div class="header">
+	    		<h2>{{ pet.name }}</h2>
+	    		<div class="stats">
+                    {{ pet.animal }}
+                    {% if pet.breeds %}{% for breed in pet.breeds %} &bull; {{ breed }} {% endfor %}{% endif %}
+                    {% if pet.sex %} &bull; {{ pet.sex }} {% endif %}
+                    {% if pet.age %} &bull; {{ pet.age }} {% endif %}</div>
+    		</div><!-- close header -->
+    		<div id="images" class="images clearfix">
+				<div class="slides_container"> 
+				    {% for id, photo in pet.photos.items %}
+					<a href="{{ photo.x }}" target="_blank"><img src="{{ photo.x }}" alt="{{ pet.name }}'s {{ id }} Photo" {% boximg photo.info.1 photo.info.2 570 270 %} /></a> 
+					{% endfor %}
+				</div> 
+				<a href="#" class="prev"><img src="images/icn_slides_arrow-prev.png" width="24" height="43" alt="Arrow Prev" /></a> 
+				<a href="#" class="next"><img src="images/icn_slides_arrow-next.png" width="24" height="43" alt="Arrow Next" /></a> 
+    		</div><!-- close images -->
+    		<div id="shareBar" class="clearfix">
+    			<div class="print">P</div>
+    			<div class="email">@</div>
+    			<a class="twitter"></a>
+    			<a class="facebook"></a>
+    		</div>
+    		<div id="description">
+    			<h2>Description</h2>
+    			<p>{{ pet.description|safe }}</p>
+    			<p class="seePetfinder"><a href="http://www.petfinder.com/petdetail/{{ pet.id }}" target="_blank">See on Petfinder.com &raquo;</a></p>
+    		</div><!-- close description -->
+    		<div class="shelterInfo">
+    			<h2>More Info</h2>
+    			<h3>Adoption</h3>
+    			<p>Adopt one of our special animals and save not just one but two lives! You save the life of the animal that you adopt, and you make room for us to bring another homeless animal into our foster network in hopes of finding a loving, forever family and living a long and happy life.</p>
+    			<p>If you are interested in adopting a pet, simply fill out our online application to start the process. This form and consultation with a Caring About The Strays representative are designed to help you find the cat most compatible with your lifestyle.</p>
+            	<a href="/application-{{ pet.name|slugify }}-{{ pet.id }}.html" class="btnAdopt">Adopt {{ pet.name }}!</a>
+    			<h3>Sponsorship</h3>
+    			<p>Become a sponsor to one of our foster animals and you will be helping us support one of our furry friends while they wait for a permanent home. As a no-kill organization, some of our animals have spent their lives under our care without ever being considered for adoption. This would not be possible if it weren't for the kindness of your contributions.</p>
+            	<a href="/sponsor-{{ pet.name|slugify }}-{{ pet.id }}.html" class="btnSponsor">Sponsor {{ pet.name }}!</a>
+    		</div>
+    	</div><!-- close pet -->
+    	<div id="sidebar">
+        	<div class="featureAd">
+                <img src="images/ad_placeholder.png" alt="AD" />
+            </div><!-- close featureAd -->
+            <!--<div class="donateNowBox">
+            	<h3>Donate Now!</h3>
+            	<a href="" class="text">Click here to help out.</a>
+            </div> close donateNowBox -->
+			<!--<div class="featureAd">
+                <img src="images/ad_placeholder.png" alt="AD" />
+            </div>--><!-- close featureAd -->
+
+        </div><!-- close sidebar -->
 {% endif %}
 {% endblock main %}
+
+{% block javascript %}
+{{ block.super }}
+<script src="js/jquery.easing.min.js"></script> 
+<script src="js/jquery.slides.min.js"></script> 
+<script> 
+	$(function(){
+		$('#images').slides({
+			preload: true,
+			preloadImage: 'images/slides_loading.gif',
+			play: 5000,
+			pause: 2500,
+			hoverPause: true
+		});
+	});
+</script> 
+{% endblock javascript %}
+
 

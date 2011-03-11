@@ -45,7 +45,7 @@
 	height: 270px;
 	overflow: hidden;
 	margin: 0 30px;
-	background: url(images/slides_loading.gif) 50% 50% no-repeat;
+	background: #000 url(images/slides_loading.gif) 50% 50% no-repeat;
 }
 
 #images .prev,
@@ -61,6 +61,21 @@
 #images .next {
 	position: absolute;
 	left: 576px;
+}
+
+#images .pagination {
+	text-align: center;
+}
+
+#images .pagination li {
+	display: inline;
+	float:	left;
+	list-style: none;
+	margin: 0 0 0 10px;
+}
+
+#images .pagination li:first-child {
+	margin: 0;
 }
 
 

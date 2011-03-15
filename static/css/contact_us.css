@@ -9,3 +9,28 @@
 	border-bottom: none;
 	text-align: center;
 }
+
+#page.contactUs #main h2 {
+	font-size: 24px;
+}
+
+#page.contactUs #main h2,
+#page.contactUs h3 {
+	color: #dd5f24;
+}
+
+#page.contactUs h3 {
+	font-size: 16px;
+}
+
+.contactUsInfo,
+.contactUsEmails {
+	margin: 0 auto 20px;
+}
+
+.contactUsInfo ul,
+.contactUsEmails ul {
+	list-style: none;
+	margin: 0;
+}
+

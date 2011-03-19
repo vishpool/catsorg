@@ -265,7 +265,8 @@ body {
 	text-decoration: none;
 }
 
-#navigation ul li.current a {
+#navigation ul li.current a,
+#navigation ul li.current a:hover {
 	background: #fff url(../images/bg_menu_paw.png) no-repeat 5px 45%;
 	color: #dd5f24;
 	padding: 0 20px 0 40px;

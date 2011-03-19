@@ -21,5 +21,8 @@ handlers:
   static_files: static/images/favicon.png
   upload: static/images/favicon.png
 
+- url: /svc/.*
+  script: svc.py
+
 - url: .*
   script: main.py

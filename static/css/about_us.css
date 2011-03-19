@@ -6,10 +6,6 @@
 	color: #dd5f24;
 }
 
-#main p {
-	margin: 0 0 20px;
-}
-
 .location .address,
 .location .map {
 	float: left;
@@ -30,6 +26,21 @@
 	border: 1px solid #dd5f24;
 }
 
-p.whoIsCats {
-	margin: 0;
+.aboutUsInfo p {
+	margin: 0 0 20px;
+}
+
+.whoIsInfo h3 {
+	font-size: 16px;
+	color: #dd5f24;
+}
+
+.whoIsInfo h4 {
+    font-style: italic;
+}
+
+.whoIsInfo h3,
+.whoIsInfo h4,
+div.whoIsInfo p {
+	margin: 0 20px 10px;
 }

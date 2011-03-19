@@ -8,6 +8,8 @@
         <div>API Secret: <input type="text" name="api_secret" value="{{ api_secret }}"></input></div>
         <div>Shelter Name: <input type="text" name="shelter_name" value="{{ shelter_name }}"></input></div>
         <div>Shelter Phone: <input type="text" name="shelter_phone" value="{{ shelter_phone }}"></input></div>
+        <div>Shelter Email: <input type="text" name="shelter_email" value="{{ shelter_email }}"></input></div>
+        <div>Shelter Email > Donations: <input type="text" name="shelter_email_donations" value="{{ shelter_email_donations }}"></input></div>
         <div>Shelter Address: <textarea name="shelter_address" rows="3" cols="60">{{ shelter_address }}</textarea></div>
         <div>Site Title: <textarea name="site_title" rows="3" cols="60">{{ site_title }}</textarea></div>
         <div>Site Footer: <textarea name="site_footer" rows="3" cols="60">{{ site_footer }}</textarea></div>
@@ -15,6 +17,8 @@
         <div>Site About Us > Mission: <textarea name="site_about_us_mission" rows="5" cols="60">{{ site_about_us_mission }}</textarea></div>
         <div>Site About Us > Who: <textarea name="site_about_us_who" rows="5" cols="60">{{ site_about_us_who }}</textarea></div>
         <div>Site Contact Us > Emails: <textarea name="site_contact_us_emails" rows="5" cols="60">{{ site_contact_us_emails }}</textarea></div>
+        <div>Shelter Facebook: <input type="text" name="shelter_facebook" value="{{ shelter_facebook }}"></input></div>
+        <div>Shelter Twitter: <input type="text" name="shelter_twitter" value="{{ shelter_twitter }}"></input></div>
         <div><input type="submit" value="Setup Shelter"> <input type="reset" value="Reset"><i>{{ shelter_admin }}</i></div>
     </form>
 
@@ -27,10 +31,6 @@
         <div><input type="submit" name="submit" value="Get Pets"></div>
     </form>
     
-    <form name="form_random_pets" action="/admin/" method="post">
-        <div><input type="submit" name="submit" value="Get Random Pet"></div>
-    </form>
-
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script> 
     <script type="text/javascript" src="/js/jquery.populate.min.js"></script>
     <script type="text/javascript"> 

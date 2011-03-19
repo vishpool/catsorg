@@ -2,9 +2,13 @@
 
 {% block main %}
         <h2>About Us</h2>
-		<p>{{ site_about_us_mission|safe|linebreaks }}</p>
+		<div class="aboutUsInfo">
+		  {{ site_about_us_mission|safe|linebreaks }}
+        </div>
 		<h2>Who is {{ shelter_name }}?</h2>
-		<p class="whoIsCats"><ul>{{ site_about_us_who|safe|linebreaks }}</ul></p>
+		<div class="whoIsInfo">
+		  {{ site_about_us_who|safe|linebreaks }}
+		</div>
 		<h2>Where is {{ shelter_name }}?</h2>
 		<div class="location clearfix">
 			<div class="address">

@@ -8,6 +8,8 @@ class Shelter(db.Model):
     api_secret = db.StringProperty(required=True)
     shelter_name = db.StringProperty(required=True)
     shelter_phone = db.PhoneNumberProperty(required=True)
+    shelter_email = db.StringProperty(required=True)
+    shelter_email_donations = db.StringProperty(required=False)
     shelter_address = db.PostalAddressProperty(required=True)
     site_title = db.StringProperty(required=True)
     site_footer = db.StringProperty(required=True)
@@ -15,6 +17,8 @@ class Shelter(db.Model):
     site_about_us_mission = db.TextProperty(required=True)
     site_about_us_who = db.TextProperty(required=True)
     site_contact_us_emails = db.TextProperty(required=False)
+    shelter_facebook = db.StringProperty(required=False)
+    shelter_twitter = db.StringProperty(required=False)
     updated = db.DateTimeProperty(auto_now_add=True)
 
 class DictProperty(db.Property): 

@@ -23,6 +23,8 @@ class MainHandler(webapp.RequestHandler):
                 'api_secret': shelter.api_secret,
                 'shelter_name': shelter.shelter_name,
                 'shelter_phone': shelter.shelter_phone,
+                'shelter_email': shelter.shelter_email,
+                'shelter_email_donations': shelter.shelter_email_donations,
                 'shelter_address': shelter.shelter_address,
                 'site_title': shelter.site_title,
                 'site_footer': shelter.site_footer,
@@ -30,6 +32,8 @@ class MainHandler(webapp.RequestHandler):
                 'site_about_us_mission': shelter.site_about_us_mission,
                 'site_about_us_who': shelter.site_about_us_who,
                 'site_contact_us_emails': shelter.site_contact_us_emails,
+                'shelter_facebook': shelter.shelter_facebook,
+                'shelter_twitter': shelter.shelter_twitter,
             }
             template_values['shelter_data'] = json.dumps(template_values)
             template_values['admin'] = user.nickname()
@@ -44,6 +48,8 @@ class MainHandler(webapp.RequestHandler):
                 'api_secret': '',
                 'shelter_name': '',
                 'shelter_phone': '',
+                'shelter_email': '',
+                'shelter_email_donations': '',
                 'shelter_address': '',
                 'site_title': '',
                 'site_footer': '',
@@ -51,6 +57,8 @@ class MainHandler(webapp.RequestHandler):
                 'site_about_us_mission': '',
                 'site_about_us_who': '',
                 'site_contact_us_emails': '',
+                'shelter_facebook': '',
+                'shelter_twitter': '',
             }
             template_values['shelter_data'] = json.dumps(template_values)
             template_values['admin'] = user.nickname()
@@ -85,12 +93,16 @@ class ShelterSetupHandler(webapp.RequestHandler):
                             shelter_name=self.request.get('shelter_name'),
                             shelter_phone=self.request.get('shelter_phone'),
                             shelter_address=self.request.get('shelter_address'),
+                            shelter_email=self.request.get('shelter_email'),
+                            shelter_email_donations=self.request.get('shelter_email_donations'),
                             site_title=self.request.get('site_title'),
                             site_footer=self.request.get('site_footer'),
                             site_news=self.request.get('site_news'),
                             site_about_us_mission=self.request.get('site_about_us_mission'),
                             site_about_us_who=self.request.get('site_about_us_who'),
-                            site_contact_us_emails=self.request.get('site_contact_us_emails'))
+                            site_contact_us_emails=self.request.get('site_contact_us_emails'),
+                            shelter_facebook=self.request.get('shelter_facebook'),
+                            shelter_twitter=self.request.get('shelter_twitter'))
 
         shelter.put()
         CacheUtil.setCachedContent('shelter', shelter)

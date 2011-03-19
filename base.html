@@ -13,22 +13,26 @@
     <div class="rightFootPrints"></div>-->
     <div id="navigation">
         <ul class="clearfix">
-            <li{% ifequal nav "index" %} class="current"{% endifequal %}><a href="index.html">HOME</a></li>
-            <li{% ifequal nav "adoptions" %} class="current"{% endifequal %}><a href="adoptions.html">ADOPTIONS</a></li>
-            <li{% ifequal nav "donations" %} class="current"{% endifequal %}><a href="donations.html">DONATIONS</a></li>
-            <li{% ifequal nav "about_us" %} class="current"{% endifequal %}><a href="about_us.html">ABOUT US</a></li>
-            <li{% ifequal nav "contact_us" %} class="current"{% endifequal %}><a href="contact_us.html">CONTACT US</a></li>
+            <li{% ifequal nav "index" %} class="current"{% endifequal %}><a href="index.html">Home</a></li>
+            <li{% ifequal nav "adoptions" %} class="current"{% endifequal %}><a href="adoptions.html">Adoptions</a></li>
+            <li{% ifequal nav "donations" %} class="current"{% endifequal %}><a href="donations.html">Donations</a></li>
+            <li{% ifequal nav "about_us" %} class="current"{% endifequal %}><a href="about_us.html">About Us</a></li>
+            <li{% ifequal nav "contact_us" %} class="current"{% endifequal %}><a href="contact_us.html">Contact Us</a></li>
         </ul>
         <div class="socialMedia clearfix">
-            <a href="" class="facebook"></a>
-            <a href="" class="twitter"></a>
+            {% if shelter_facebook %}
+            <a href="{{ shelter_facebook }}" class="facebook"></a>
+            {% endif %}
+            {% if shelter_twitter %}
+            <a href="{{ shelter_twitter }}" class="twitter"></a>
+            {% endif %}
         </div><!-- close socialMedia -->
     </div><!-- close navigation -->
     <div id="header">
-        <h1><img src="images/logo_main.png" alt="{{ shelter_name }}"/></h1>
+        <h1><img src="{{ logo }}" alt="{{ shelter_name }}"/></h1>
         <div class="callUs">
             Thinking about adopting?
-            <div class="phoneNumber">Call Us: {{ shelter_phone }}</div>
+            <div class="phoneNumber">Call us: {{ shelter_phone }}</div>
         </div><!-- close callUs -->
     </div><!-- close header -->
     <div id="main" class="clearfix">

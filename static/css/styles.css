@@ -260,9 +260,10 @@ body {
 	height: 45px;
 	padding: 0 20px 0 20px;
 	font-size: 16px;
-	line-height: 45px;
+	line-height: 47px;
 	color: #fff;
 	text-decoration: none;
+	text-transform: uppercase;
 }
 
 #navigation ul li.current a,
@@ -312,7 +313,7 @@ body {
 /** header */
 #header {
 	position: relative;
-	height: 120px;
+	height: 110px;
 	background: #fff;
 }
 
@@ -526,6 +527,21 @@ body {
 	margin: 0 0 10px 0;
 	font-size: 24px;
 	color: #dd5f24;
+}
+
+.newsEventsRow h3 {
+	font-size: 18px;
+	margin: 25px 0 0 20px;
+	color: #dd5f24;
+}
+
+.newsEventsRow img {
+	max-width: 175px; 
+	float:right; margin-left: 5px
+}
+
+.newsEventsRow p {
+	margin: 0 20px 15px;
 }
 
 /** otherItemsRow */

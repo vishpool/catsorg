@@ -51,26 +51,20 @@ a.btnDonation {
 	color: #fff;
 	text-align: center;
 	text-decoration: none;
+	text-transform: uppercase;
 }
 
 #main .sidebar {
 	width: 162px;
 }
-	.sidebar .payPalVerified {
-		padding: 10px 9px 9px 10px;
-		-webkit-border-radius: 10px;
-		-moz-border-radius: 10px;
-		border-radius: 10px;
-		background: #dd5f24;
-		font-size: 16px;
-		font-weight: bold;
-		color: #fff;
-		text-align: center;
-	}
 
-	#main .sidebar .ad {
-		width: 160px;
-		height: 600px;
-		border: 1px solid #ccc;
-		background: 0;
-	}
+.sidebar .payPalVerified {
+	align: center
+}
+
+#main .sidebar .ad {
+	width: 160px;
+	height: 600px;
+	border: 1px solid #ccc;
+	background: 0;
+}

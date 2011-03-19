@@ -28,11 +28,17 @@ class MainHandler(webapp.RequestHandler):
             'site_footer': shelter.site_footer,
             'shelter_name': shelter.shelter_name,
             'shelter_phone': shelter.shelter_phone,
+            'shelter_email': shelter.shelter_email,
+            'shelter_email_donations': shelter.shelter_email_donations,
             'shelter_address': shelter.shelter_address,
             'site_news': shelter.site_news,
             'site_about_us_mission': shelter.site_about_us_mission,
             'site_about_us_who': shelter.site_about_us_who,
             'site_contact_us_emails': shelter.site_contact_us_emails,
+            'shelter_facebook': shelter.shelter_facebook,
+            'shelter_twitter': shelter.shelter_twitter,
+            'url': request.url,
+            'logo': 'http://' + request.headers.get('Host') + '/images/logo_main.png'
         }
         if request.headers.get('Referer') is not None and request.headers.get('Host') in request.headers.get('Referer'):
             values['back'] = True

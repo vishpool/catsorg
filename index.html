@@ -21,7 +21,7 @@
                             	<!-- <li class="animalOther">Great with kids!</li> -->
                             </ul>
                         </div><!-- close petDetails -->
-                        <div class="adoptButton"><a class="btnAction" href="/adoptions-{{ pet.name|slugify }}-{{ pet.id }}.html">Read more!</a></div>
+                        <div class="adoptButton"><a class="btnAction" href="/adoptions-{{ pet.animal|slugify }}-{{ pet.name|slugify }}-{{ pet.id }}.html">Read more!</a></div>
                     </div><!-- close petInfo -->
                 </div><!-- close feauturedPet -->
                 {% endfor %}
@@ -49,7 +49,7 @@
 {% if site_news %}        
         <div class="newsEventsRow">
             <h2>News &amp; Events</h2>
-            {{ site_news }}
+            {{ site_news|safe|linebreaksbr }}
         </div><!-- close newsEventsRow -->
 {% endif %}
         <div class="otherItemsRow clearfix">

@@ -11,9 +11,9 @@
                     {% if pet.sex %} &bull; {{ pet.sex }} {% endif %}
                     {% if pet.age %} &bull; {{ pet.age }} {% endif %}
                 </div>
-                {%if req.META.HTTP_REFERER %}
+                {%if back %}
 	    		<div class="back">
-                    <a href="{{ req.META.HTTP_REFERER }}" target="_blank">Back &raquo;</a>
+                    <a href="javascript: history.back()">&laquo; Back</a>
                 </div>
                 {% endif %}
     		</div><!-- close header -->
@@ -38,13 +38,14 @@
     			<p class="seePetfinder"><a href="http://www.petfinder.com/petdetail/{{ pet.id }}" target="_blank">See on Petfinder.com &raquo;</a></p>
     		</div><!-- close description -->
     		<div class="shelterInfo">
-    			<h2>More Info</h2>
+    			<h2>More Information</h2>
     			<h3>Adoption</h3>
     			<p>Adopt one of our special animals and save not just one but two lives! You save the life of the animal that you adopt, and you make room for us to bring another homeless animal into our foster network in hopes of finding a loving, forever family and living a long and happy life.</p>
-    			<p>If you are interested in adopting a pet, simply fill out our online application to start the process. This form and consultation with a Caring About The Strays representative are designed to help you find the cat most compatible with your lifestyle.</p>
+    			<p>If you are ready to adopt a pet, simply fill out our online application to start the process. This information and consultation with a {{ shelter_name }} representative are designed to help you find the cat most compatible with your lifestyle.</p>
             	<a href="/application-{{ pet.name|slugify }}-{{ pet.id }}.html" class="btnAdopt">Adopt {{ pet.name }}!</a>
-    			<h3>Sponsorship</h3>
-    			<p>Become a sponsor to one of our foster animals and you will be helping us support one of our furry friends while they wait for a permanent home. As a no-kill organization, some of our animals have spent their lives under our care without ever being considered for adoption. This would not be possible if it weren't for the kindness of your contributions.</p>
+    			<h3>Lifesaving Sponsorship</h3>
+    			<p>Become a sponsor to one of our foster animals and you will be helping us support one of our furry friends while they wait for a permanent home. As a no-kill organization, some of our animals have spent their lives under our care without ever being considered for adoption. This would not be possible if it weren't for the kindness of your contributions. </p>
+    			<p>It's only $100 to sponsor one of these precious and special animals and give him or her a chance at a long and happy life. Thank you!</p>
             	<a href="/sponsor-{{ pet.name|slugify }}-{{ pet.id }}.html" class="btnSponsor">Sponsor {{ pet.name }}!</a>
     		</div>
     	</div><!-- close pet -->

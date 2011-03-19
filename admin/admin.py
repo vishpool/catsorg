@@ -1,4 +1,6 @@
 import os
+from google.appengine.dist import use_library
+use_library('django', '1.2')
 import logging
 from google.appengine.ext import webapp
 from google.appengine.api import users
@@ -7,6 +9,7 @@ from google.appengine.ext.webapp import template
 from django.utils import simplejson as json
 
 from petfinder.api import *
+from util import *
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
@@ -90,6 +93,7 @@ class ShelterSetupHandler(webapp.RequestHandler):
                             site_contact_us_emails=self.request.get('site_contact_us_emails'))
 
         shelter.put()
+        CacheUtil.setCachedContent('shelter', shelter)
         self.redirect('/admin/')
 
 def main():

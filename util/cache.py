@@ -45,6 +45,6 @@ class CacheUtil:
 
         key = md5.new(key).hexdigest()
         logging.debug('Caching content (%s): %s', key, data)
-        memcache.add(key, data, ttl)
+        memcache.set(key, data, ttl)
         
     

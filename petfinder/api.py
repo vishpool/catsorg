@@ -1,9 +1,12 @@
 import os
+from google.appengine.dist import use_library
+use_library('django', '1.2')
 import sys
 import urllib2
 import md5
 import logging
 import re
+import pickle
 from django.utils import simplejson as json
 
 from admin.models import *
@@ -32,6 +35,11 @@ class PetFinderAPI:
             if cpet is not None:
                 pet = cpet
             else:
+                petDB = Pet(key_name=str(pet['id']['$t']),
+                    pet_id=str(pet['id']['$t']),
+                    pet_data=pet)
+                Pet.save(petDB)
+
                 pet = {
                     'id': pet['id']['$t'],
                     'name': pet['name']['$t'],
@@ -53,15 +61,18 @@ class PetFinderAPI:
     
     def getShelterPet(self, pet_id):
 
-        data = {
-            'id': pet_id,
-            'token': self.getToken()}
-        
         pet = CacheUtil.getCachedContent('pet-' + pet_id)
         if pet is not None:
             return pet
         else:
-            pet = self.getResponse('pet.get', data)
+#             data = {
+#                 'id': pet_id,
+#                 'token': self.getToken()}
+#         
+#             pet = self.getResponse('pet.get', data)
+#             Workaround for pet.get
+            petDB = Pet.get_by_key_name(pet_id)
+            pet = petDB.pet_data
             if pet is not None: 
                 pet = {
                     'id': pet['id']['$t'],
@@ -158,18 +169,26 @@ class PetFinderAPI:
             params += '&' + d + '=' + str(data[d])
         
         return params + '&format=json'
+        
+    def setShelter(self):
+        if self.shelter is None:
+            self.shelter = Shelter.get_by_key_name('shelter')
+            
+        if self.shelter is None:
+            sys.exit('No shelter found!')
+
             
     def getApiKey(self):
-        shelter = Shelter.get_by_key_name('shelter')
+        self.setShelter();
 
-        return shelter.api_key
+        return self.shelter.api_key
 
     def getApiSecret(self):
-        shelter = Shelter.get_by_key_name('shelter')
+        self.setShelter();
 
-        return shelter.api_secret
+        return self.shelter.api_secret
 
     def getShelterID(self):
-        shelter = Shelter.get_by_key_name('shelter')
+        self.setShelter();
 
-        return shelter.shelter_id
+        return self.shelter.shelter_id

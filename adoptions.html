@@ -14,7 +14,7 @@
 	            {% endfor %}
 	        </div>
 			<h2>Available Pets</h2>
-<!--
+
 	        <div id="showPets">
 	        	<form id="petType" name="petType" action="" method="get">
 		        	<select id="type">
@@ -24,7 +24,7 @@
 		        	</select>
 	        	</form>
 	        </div>
--->
+
 			<div id="availablePets" class="clearfix">
 	            {% for pet in pets %}
 	        	<div class="pet{% if forloop.last or forloop.counter|divisibleby:4 %} last{% endif %}">

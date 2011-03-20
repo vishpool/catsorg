@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block main %}
+	<div class="content floatLeft">
         <h2>About Us</h2>
 		<div class="aboutUsInfo">
 		  {{ site_about_us_mission|safe|linebreaks }}
@@ -20,5 +21,12 @@
 			<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&q={{ shelter_address|urlencode }}&iwloc=A&output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&q={{ shelter_address|urlencode }}&iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>
 			</div>
 		</div><!-- location -->
+	</div><!-- close content -->
+    <div class="sidebar floatRight">
+    	<div class="payPalVerified"><img src="images/paypal_seal.gif"></div>
+    	<div class="ad">
+    		<img src="https://www.google.com/adsense/static/en_US/images/exampleWideSkyscraper.gif" alt="ad"/>
+    	</div>
+    </div><!-- close sidebar -->
 {% endblock main %}
 

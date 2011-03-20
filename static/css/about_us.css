@@ -1,5 +1,10 @@
 @import url(styles.css);
 
+#main .content {
+	width: 738px;
+	margin: 0 20px 0 0;
+}
+
 #main h2 {
 	margin: 0 0 10px;
 	font-size: 24px;
@@ -43,4 +48,20 @@
 .whoIsInfo h4,
 div.whoIsInfo p {
 	margin: 0 20px 10px;
+}
+
+/* sidebar */
+#main .sidebar {
+	width: 162px;
+}
+
+.sidebar .payPalVerified {
+	align: center
+}
+
+#main .sidebar .ad {
+	width: 160px;
+	height: 600px;
+	border: 1px solid #ccc;
+	background: 0;
 }

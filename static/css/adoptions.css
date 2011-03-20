@@ -70,16 +70,18 @@
 }
 
 .petPag {
-	padding: 0 200px;
 	margin: 0 0 20px;
 }
 
 .petPag a {
 	display: block;
-	padding: 10px;
+	width: 310px;
+	height: 20px;
+	padding: 11px 10px 9px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
+	margin: 0 auto;
 	background: #dd5f24;
 	font-size: 16px;
 	color: #fff;

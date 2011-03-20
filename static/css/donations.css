@@ -23,14 +23,6 @@
 	margin: 0 20px 0 0;
 }
 
-#main .ad {
-	width: 468px;
-	height: 60px;
-	border: 1px solid #dd5f24;
-	margin: 20px auto;
-	background: #ccc;
-}
-
 .options,
 .thankYou {
 	margin: 0 0 0 40px;
@@ -52,19 +44,4 @@ a.btnDonation {
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
-}
-
-#main .sidebar {
-	width: 162px;
-}
-
-.sidebar .payPalVerified {
-	text-align: center;
-}
-
-#main .sidebar .ad {
-	width: 160px;
-	height: 600px;
-	border: 1px solid #ccc;
-	background: 0;
 }

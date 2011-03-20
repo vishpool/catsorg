@@ -20,11 +20,11 @@
             <li{% ifequal nav "contact_us" %} class="current"{% endifequal %}><a href="contact_us.html">Contact Us</a></li>
         </ul>
         <div class="socialMedia clearfix">
-            {% if shelter_facebook %}
-            <a href="{{ shelter_facebook }}" class="facebook"></a>
-            {% endif %}
             {% if shelter_twitter %}
-            <a href="{{ shelter_twitter }}" class="twitter"></a>
+            <a href="{{ shelter_twitter }}" class="twitter" target="_blank"></a>
+            {% endif %}
+            {% if shelter_facebook %}
+            <a href="{{ shelter_facebook }}" class="facebook" target="_blank"></a>
             {% endif %}
         </div><!-- close socialMedia -->
     </div><!-- close navigation -->

@@ -1,11 +1,14 @@
 @import url(styles.css);
-@import url(social_media.css);
 
 #main h2 {
-	margin: 0;
 	font-size: 24px;
 	line-height: 24px;
 	color: #dd5f24;
+	margin: 0 10px 0;
+}
+
+#application h2 {
+    margin: 0 0 20px 0;
 }
 
 #main p {
@@ -31,62 +34,42 @@
 }
 
 #pet .header {
-	margin: 0 0 0 30px;
+    margin-bottom: 0 40px 0;
 }
 
 #pet .header .stats {
 	font-style: oblique;
+	margin: 5px 10px 10px;
 }
-
 
 #images .slides_container {
 	position: relative;
 	width: 540px;
 	height: 270px;
 	overflow: hidden;
-	margin: 0 30px;
-	background: #000 url(images/slides_loading.gif) 50% 50% no-repeat;
-}
-
-#images .slides_container a {
-	text-align: center; 
+	margin: 10px 30px;
+	border: 1px solid #dd5f24;
+	background: #fff url(images/slides_loading.gif) 50% 50% no-repeat;
 }
 
 #images .prev,
 #images .next {
 	position: absolute;
-	top: 149px;
+	top: 165px;
 }
 
 #images .prev {
-	left: 0;
+	left: 6px;
 }
 
 #images .next {
 	position: absolute;
-	left: 576px;
+	left: 572px;
 }
 
 #images .pagination {
-	overflow: auto;
-	padding: 10px;
-	text-align: center;
+    display: none;
 }
-
-#images .pagination li {
-	display: inline;
-	float:	left;
-	list-style: none;
-	width: 15px;
-	height: 15px;
-	margin: 0 0 0 10px;
-	text-align: center;
-}
-
-#images .pagination li:first-child {
-	margin: 0;
-}
-
 
 #pet .selectedImg {
 	float: left;
@@ -116,7 +99,11 @@
 }
 
 #description {
-	margin: 0 0 40px;
+	margin: 0 0 20px;
+}
+
+#description p {
+	margin: 10px 0 20px 0;
 }
 
 #description p.seePetfinder {
@@ -133,23 +120,71 @@
 	text-decoration: underline;
 }
 
+#pet .shelterInfo a.btnAdoption,
+#pet .shelterInfo a.btnDonation {
+	display: block;
+	position: relative;
+	right: -410px;
+	width: 130px;
+	padding: 10px 9px 9px 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background: #dd5f24;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
 #pet .shelterInfo {
 	position: relative;
 	width: 558px;
-	padding: 30px 20px 10px;
+	padding: 10px 20px;
 	border: 1px dashed #dd5f24;
 	margin: 0 auto;
 }
 
+#pet .shelterInfo p {
+	margin: 0 0 20px;
+}
+
 #pet .shelterInfo h2 {
-	position: absolute;
-	top: -24px;
-	left: 225px;
-	width: 150px;
-	padding: 10px;
+	margin: 0;
+}
+
+#description h3, 
+#pet .shelterInfo h3 {
+	font-size: 16px;
+	color: #dd5f24;
+	margin: 10px 0 10px;
+}
+
+#description p, 
+#pet .shelterInfo p {
+	margin: 0 0 10px;
+}
+
+#pet .shelterInfo .adoptButton,
+#pet .shelterInfo .sponsorButton {
 	background: #dd5f24;
-	color: #fff;
+	width: 120px;
+	padding: 7px 6px 6px 7px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	text-align: center;
+	margin: 0 10px 10px;
+	float: right;
+}
+
+#pet .shelterInfo .adoptButton a,
+#pet .shelterInfo .sponsorButton a {
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
 }
 
 #sidebar {

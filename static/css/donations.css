@@ -39,13 +39,13 @@
 a.btnDonation {
 	display: block;
 	position: relative;
-	left: 578px;
-	width: 100px;
+	left: 560px;
+	width: 120px;
 	padding: 10px 9px 9px 10px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	margin: 0 0 20px;
+	margin: 0 0 10px;
 	background: #dd5f24;
 	font-weight: bold;
 	color: #fff;

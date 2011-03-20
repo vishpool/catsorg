@@ -1,12 +1,43 @@
-#main .socialMedia {
-	position: relative;
-	top: 0;
-	right: 0;
-	width: 468px;
-	margin: 0 0 20px;
+.socialMedia {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 2;
+	width: 120px;
 }
 
+.socialMedia a.facebook,
+.socialMedia a.twitter,
+.socialMedia a.email {
+	float: right;
+	display: block;
+	width: 32px;
+	height: 32px;
+	font-size: 20px;
+	line-height: 45px;
+	text-align: center;
+	text-decoration: none;
+}
 
+.socialMedia a.facebook {
+	margin: 0 5px 0 0;
+	background: url(../images/icn_facebook_32.png) no-repeat;
+	color: #fff;
+}
+
+.socialMedia a.twitter {
+	margin: 0 5px 0 0;
+	background: url(../images/icn_twitter_32.png) no-repeat;
+	color: #fff;
+}
+
+.socialMedia a.email {
+	margin: 0 5px 0 0;
+	background: url(../images/icn_email_32.png) no-repeat;
+	color: #fff;
+}
+
+/*
 #main .socialMedia a.facebook,
 #main .socialMedia a.twitter,
 #shareBar .print,
@@ -48,3 +79,4 @@
 	background: #fdf3c1;
 	color: #dea140;
 }
+*/

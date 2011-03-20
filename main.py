@@ -101,7 +101,7 @@ class AdoptionsPetHandler(webapp.RequestHandler):
         values = {
             'page': page,
             'nav': 'adoptions',
-            'title': 'Adoptions',
+            'title': 'Adoptions - ' + pet['animal'] + ' - ' + pet['name'],
             'css': 'adoptions_pet.css',
             'page_class': 'adoptions',
             'pet': pet,
@@ -113,10 +113,12 @@ class AdoptionsPetHandler(webapp.RequestHandler):
 
 class ApplicationHandler(webapp.RequestHandler):
 
-    def get(self, req, page, slug, pet_id):
+    def get(self, req, page, petm, slug, pet_id):
 
-        api = PetFinderAPI()
-        pet = api.getShelterPet(pet_id)
+        pet = None
+        if petm is not None:
+            api = PetFinderAPI()
+            pet = api.getShelterPet(pet_id)
 
         values = {
             'page': page,
@@ -126,6 +128,10 @@ class ApplicationHandler(webapp.RequestHandler):
             'page_class': 'application',
             'pet': pet,
         }
+        if pet is not None:
+            logging.debug(pet)
+            values['title'] += ' - ' + pet['animal'] + ' - ' + pet['name']
+            
         values = dict(values, **MainHandler.getMainValues(self.request))
 
         path = os.path.join(os.path.dirname(__file__), 'application.html')
@@ -186,7 +192,7 @@ def main():
     application = webapp.WSGIApplication([('/((index).html)?', MainHandler),
                                           ('/((adoptions|adoptions_success).html)', AdoptionsHandler),
                                           ('/((adoptions)-(.+)-(\d+).html)', AdoptionsPetHandler),
-                                          ('/((application)-(.+)-(\d+).html)', ApplicationHandler),
+                                          ('/((application)(-(.+)-(\d+))?.html)', ApplicationHandler),
                                           ('/((donations|donations_success).html)', DonationsHandler),
                                           ('/((about_us).html)', AboutUsHandler),
                                           ('/((contact_us).html)', ContactUsHandler)],

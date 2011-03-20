@@ -22,9 +22,9 @@
 				<a href="#" class="next"><img src="images/icn_slides_arrow-next.png" width="24" height="43" alt="Arrow Next" /></a> 
     		</div><!-- close images -->
     		<div id="shareBar" class="socialMedia clearfix">
-                <a href="mailto:?subject={{ pet.name }}{{ " on "|urlencode }}{{ shelter_name }}&body={{ "Check out "|urlencode }}{{ pet.name }}{{ " at "|urlencode }}{{ shelter_name }}{{ ": "|urlencode }}{{ url|urlencode }}" class="email"></a>
-                <a href="http://twitter.com/home?status={{ "Check out "|urlencode }}{{ pet.name }}{{ " at "|urlencode }}{{ shelter_name }} {{ url|urlencode }}" class="twitter" target="_blank"></a>
-                <a href="http://www.facebook.com/sharer.php?u={{ url|urlencode }}&t={{ "Check out "|urlencode }}{{ pet.name }}{{ " at "|urlencode }}{{ shelter_name }}" class="facebook" target="_blank"></a>
+                <a href="mailto:?subject={{ pet.animal|urlencode }} {{ pet.name|urlencode }} at {{ shelter_name|urlencode }}&body=Check out {{ pet.animal|urlencode }} {{ pet.name|urlencode }} at {{ shelter_name }}: {{ url|urlencode }}" class="email"></a>
+                <a href="http://twitter.com/home?status=Check out {{ pet.animal|urlencode }} {{ pet.name|urlencode }} at {{ shelter_name|urlencode }} {{ url|urlencode }}" class="twitter" target="_blank"></a>
+                <a href="http://www.facebook.com/sharer.php?u={{ url|urlencode }}&t=Check out {{ pet.animal|urlencode }} {{ pet.name|urlencode }} at {{ shelter_name|urlencode }}" class="facebook" target="_blank"></a>
     		</div>
     		<div id="description">
     			<h3>Description</h3>

@@ -1,23 +1,14 @@
 {% extends "base.html" %}
 
 {% block main %}
-{% if pet %}
     	<div id="application">
     		<div class="header">
-	    		<h2>Adopt {{ pet.name }}</h2>
-<!--
-                {%if back %}
-	    		<div class="back">
-                    <a href="javascript: history.back()">&laquo; Back</a>
-                </div>
-                {% endif %}
--->
+	    		<h2>Adopt{% if pet %} {{ pet.name }}{% endif %}</h2>
     		</div><!-- close header -->
     		<div class="form clearfix">
-                <iframe src="https://spreadsheets.google.com/embeddedform?formkey=dEpJWmZGa3o1a0VWNGJIQk14RDJsTVE6MA&entry_186={{pet.name}}:{{ pet.id }}" width="760" height="3000" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+                <iframe src="https://spreadsheets.google.com/embeddedform?formkey=dEpJWmZGa3o1a0VWNGJIQk14RDJsTVE6MA{% if pet %}&entry_186={{pet.name}}:{{ pet.id }}{% endif %}" width="760" height="3000" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
     		</div>
     	</div><!-- close pet -->
-{% endif %}
 {% endblock main %}
 
 

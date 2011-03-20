@@ -59,7 +59,7 @@ a.btnDonation {
 }
 
 .sidebar .payPalVerified {
-	align: center
+	text-align: center;
 }
 
 #main .sidebar .ad {

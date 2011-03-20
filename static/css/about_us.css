@@ -56,13 +56,14 @@ div.whoIsInfo p {
 	width: 162px;
 }
 
-.sidebar .payPalVerified {
-	align: center
+#min .sidebar .payPalVerified {
+	text-align: center
 }
 
 #main .sidebar .ad {
 	width: 160px;
 	height: 600px;
 	border: 1px solid #ccc;
+	margin: 20px auto;
 	background: 0;
 }

@@ -42,11 +42,10 @@
                 <a class="btnDonation" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business={{ shelter_email_donations|urlencode }}&lc=US&item_name={{ shelter_name|urlencode }}{{ " - Lifesaving Sponsorship for "|urlencode }}{{ pet.name|urlencode }}&item_number={{ pet.name|urlencode }}:{{ pet.id }}&amount=100&no_note=1&no_shipping=1&rm=1&return={{ url|urlencode }}&cancel_return={{ url|urlencode }}&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted&image_url={{ logo|urlencode }}" class="btnSponsor">Sponsor {{ pet.name }}!</a>
     		</div>
     	</div><!-- close pet -->
-    	<div id="sidebar">
+    	<div class="sidebar">
         	<div class="featureAd">
                 <img src="images/ad_placeholder.png" alt="AD" />
             </div><!-- close featureAd -->
-        	<div class="payPalVerified"><img src="images/paypal_seal.gif"></div>
         </div><!-- close sidebar -->
 {% endif %}
 {% endblock main %}

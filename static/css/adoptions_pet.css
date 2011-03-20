@@ -167,16 +167,3 @@
 	text-decoration: none;
 	text-transform: uppercase;
 }
-
-#sidebar {
-	float: right;
-	width: 300px;
-}
-
-#sidebar .featureAd {
-	margin: 0 0 20px 0;
-}
-
-#sidebar .payPalVerified {
-	text-align: center;
-}

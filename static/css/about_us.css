@@ -50,20 +50,3 @@
 div.whoIsInfo p {
 	margin: 0 20px 10px;
 }
-
-/* sidebar */
-#main .sidebar {
-	width: 162px;
-}
-
-#min .sidebar .payPalVerified {
-	text-align: center
-}
-
-#main .sidebar .ad {
-	width: 160px;
-	height: 600px;
-	border: 1px solid #ccc;
-	margin: 20px auto;
-	background: 0;
-}

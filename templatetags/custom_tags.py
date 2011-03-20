@@ -5,8 +5,6 @@ register = template.create_template_register()
 
 def cropimg(width, height, maxwidth, maxheight):
     logging.getLogger().setLevel(logging.DEBUG)   
-    ratio = width / height
-    maxratio = maxwidth / maxheight
     
     if ((maxheight * width) / height) > maxwidth:
         cropwidth = (maxheight * width) / height
@@ -36,15 +34,27 @@ def cropimg(width, height, maxwidth, maxheight):
 
 def boximg(width, height, maxwidth, maxheight):
     logging.getLogger().setLevel(logging.DEBUG)   
-    ratio = width / height
-    maxratio = maxwidth / maxheight
+
+    boxwidth = width  
+    boxheight = height
+    left = 0
+    top = 0
     
-    if height > maxheight:
-        logging.debug('boximg (%dx%d => %dx%d): max-height=%d', int(width), int(height), int(maxwidth), int(maxheight), int(maxheight))
-        return 'style="max-height: %dpx;"' % (int(maxheight))
-    else:
-        logging.debug('boximg (%dx%d => %dx%d): max-width=%d', int(width), int(height), int(maxwidth), int(maxheight), int(maxwidth))
-        return 'style="max-width: %dpx;"' % (int(maxwidth))
+    if (width > maxwidth):
+        boxwidth = int(float(float(maxwidth) / float(width)) * float(boxwidth))
+        boxheight = int(float(float(maxwidth) / float(width)) * float(boxheight))
+    if (height > maxheight):
+        boxwidth = int(float(float(maxheight) / float(height)) * float(boxwidth))
+        boxheight = int(float(float(maxheight) / float(height)) * float(boxheight))
+        
+    top = (maxheight - boxheight) / 2
+    left = (maxwidth - boxwidth) / 2
+    logging.debug(boxwidth)
+    logging.debug(boxheight)
+    logging.debug(left)
+    logging.debug(top)
+    logging.debug('boximg (%dx%d => %dx%d): max-height=%d, left=%d, top=%d', int(width), int(height), int(maxwidth), int(maxheight), int(maxheight), int(left), int(top))
+    return 'style="max-width: %dpx; max-height: %dpx; left: %dpx; top: %dpx;"' % (int(maxwidth), int(maxheight), int(left), int(top))
 
 register.simple_tag(cropimg)
 register.simple_tag(boximg)

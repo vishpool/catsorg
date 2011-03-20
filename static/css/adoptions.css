@@ -69,6 +69,25 @@
 	margin: 0 10px 0 0;
 }
 
+.petPag {
+	padding: 0 200px;
+	margin: 0 0 20px;
+}
+
+.petPag a {
+	display: block;
+	padding: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background: #dd5f24;
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+}
+
+
 #sidebar {
 	float: right;
 	width: 160px;

@@ -21,13 +21,14 @@
 	margin: 0 20px 0 0;
 }
 
-.map {
+.location .map {
 	width: 425px;
+	float: right;
 }
 
 .map iframe {
-	width: 425px;
-	height: 350px;
+	width: 455px;
+	height: 300px;
 	border: 1px solid #dd5f24;
 }
 

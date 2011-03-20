@@ -12,7 +12,7 @@ class Shelter(db.Model):
     shelter_email_donations = db.StringProperty(required=False)
     shelter_address = db.PostalAddressProperty(required=True)
     site_title = db.StringProperty(required=True)
-    site_footer = db.StringProperty(required=True)
+    site_footer = db.StringProperty(required=False)
     site_news = db.TextProperty(required=False)
     site_about_us_mission = db.TextProperty(required=True)
     site_about_us_who = db.TextProperty(required=True)

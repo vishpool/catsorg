@@ -37,6 +37,7 @@ class MainHandler(webapp.RequestHandler):
             'site_contact_us_emails': shelter.site_contact_us_emails,
             'shelter_facebook': shelter.shelter_facebook,
             'shelter_twitter': shelter.shelter_twitter,
+            'site_url': 'http://' + request.headers.get('Host'),
             'url': request.url,
             'logo': 'http://' + request.headers.get('Host') + '/images/logo_main.png'
         }

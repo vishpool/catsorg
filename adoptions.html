@@ -25,7 +25,7 @@
 -->
 			<div id="availablePets" class="clearfix">
 	            {% for pet in pets %}
-	        	<div class="pet{% if forloop.last or forloop.counter|divisibleby:4 %} last{% endif %}">
+	        	<div class="pet{% if forloop.counter|divisibleby:4 %} last{% endif %}">
 	        		<div class="thumb"><a href="/adoptions-{{ pet.animal|slugify }}-{{ pet.name|slugify }}-{{ pet.id }}.html"><img src="{{ pet.photos.1.x }}" alt="{{ pet.name }}" {% cropimg pet.photos.1.info.1 pet.photos.1.info.2 142 117 %} /></a></div>
 	        		<div class="name"><a href="/adoptions-{{ pet.animal|slugify }}-{{ pet.name|slugify }}-{{ pet.id }}.html">{{ pet.name }}</a></div>
 	        	</div>

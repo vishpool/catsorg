@@ -139,8 +139,8 @@ body {
 #main .featurePets {
 	position: relative;
 	float: left;
-	width: 598px;
-	height: 248px;
+	width: 596px;
+	height: 250px;
 	border: 1px solid #dd5f24;
 	margin: 0 20px 0 0;
 }
@@ -206,7 +206,7 @@ body {
 
 .featurePets .otherFeaturedPets {
 	width: 115px;
-	height: 248px;
+	height: 250px;
 	background: #efedeb;
 }
 
@@ -216,7 +216,7 @@ body {
 }
 
 .otherFeaturedPets .feature.last {
-	height: 82px;
+	height: 83px;
 }
 
 .otherFeaturedPets .feature .featureArrow {
@@ -224,7 +224,7 @@ body {
 }
 
 .feature .featThumb {
-	padding: 9px 0 0 13px;
+	padding: 10px 0 0 13px;
 	position: relative;
 	width: 87px;
 	height: 54px;
@@ -278,7 +278,7 @@ body {
 
 .feature.current .featureArrow.last,
 .featurePets .otherFeaturedPets .feature.last:hover {
-	height: 82px;
+	height: 84px;
 }
 
 #main .featureAd {
@@ -286,6 +286,7 @@ body {
 	width: 300px;
 	height: 250px;
 	background: #dd5f24;
+	border: 1px solid #dd5f24;
 }
 
 .newsEventsRow {
@@ -310,7 +311,7 @@ body {
 .newsEventsRow img {
 	max-width: 175px; 
 	float:right; 
-	margin-left: 10px
+	margin: 20px
 }
 
 .newsEventsRow p {
@@ -361,7 +362,7 @@ body {
 	text-decoration: underline;
 }
 
-.aboutUsBox {
+.donateNowBox {
 	margin: 0 20px 0 0;
 }
 

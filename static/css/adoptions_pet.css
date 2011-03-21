@@ -53,7 +53,7 @@
 
 #images .slides_container img {
     position: relative;
-    margin-left: -10px;
+    margin-left: -15px;
 }
 
 #images .prev,
@@ -105,8 +105,8 @@
 #pet .shelterInfo a.btnDonation {
 	display: block;
 	position: relative;
-	right: -410px;
-	width: 130px;
+	right: -395px;
+	width: 150px;
 	padding: 10px 9px 9px 10px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -145,19 +145,6 @@
 #description p, 
 #pet .shelterInfo p {
 	margin: 0 0 10px;
-}
-
-#pet .shelterInfo .adoptButton,
-#pet .shelterInfo .sponsorButton {
-	background: #dd5f24;
-	width: 120px;
-	padding: 7px 6px 6px 7px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	text-align: center;
-	margin: 0 10px 10px;
-	float: right;
 }
 
 #pet .shelterInfo .adoptButton a,

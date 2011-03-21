@@ -11,19 +11,24 @@
 	color: #dd5f24;
 }
 
-.location .address,
-.location .map {
+.whereIsInfo .address,
+.whereIsInfo .map {
 	float: left;
 }
 
-.location .address {
+.whereIsInfo .address {
 	width: 375px;
 	margin: 0 20px 0 0;
 }
 
-.location .map {
+.whereIsInfo .map {
 	width: 425px;
 	float: right;
+	margin-right: 30px;
+}
+
+.whereIsInfo {
+    margin-bottom: 20px;
 }
 
 .map iframe {
@@ -33,6 +38,10 @@
 }
 
 .aboutUsInfo p {
+	margin: 0 0 20px;
+}
+
+.whoIsInfo {
 	margin: 0 0 20px;
 }
 

@@ -1,16 +1,15 @@
 $('.petPag > a').click(function(){
 	
-	var offset = 
+	var offset = $('.pet').length;
 	var address = '/svc/adoptions/' + offset + '.html';
 
 	$.ajax({
 		url: address,
-		context: document.body,
-		success: function(){
-			$(this).addClass("done");
+		success: function(results){
+			 $('#availablePets').append(results).hide().fadeIn(400);
 		}
 	});	
-
+	return false;
 
 });
 

@@ -20,7 +20,7 @@ class CacheUtil:
 
             return res
         else:
-            res = urlfetch.fetch(url, deadline=10).content
+            res = urlfetch.fetch(url, deadline=20).content
             logging.debug('Caching response (%s): %s', key, res)
             memcache.add(key, res, ttl)
             

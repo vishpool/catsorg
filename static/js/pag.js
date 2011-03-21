@@ -1,8 +1,6 @@
 $('.petPag > a').click(function(){
-	
 	var offset = $('.pet').length;
 	var address = '/svc/adoptions/' + offset + '.html';
-
 	$.ajax({
 		url: address,
 		success: function(results){
@@ -10,7 +8,6 @@ $('.petPag > a').click(function(){
 		}
 	});	
 	return false;
-
 });
 
 

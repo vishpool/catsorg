@@ -9,7 +9,7 @@ from google.appengine.api import urlfetch
 class CacheUtil:
 
     @staticmethod
-    def getCachedResponse(url, ttl=60*60):
+    def getCachedResponse(url, ttl=60*60*24):
 
         logging.getLogger().setLevel(logging.DEBUG)   
 

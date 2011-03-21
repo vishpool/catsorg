@@ -34,6 +34,7 @@ class MainHandler(webapp.RequestHandler):
                 'site_contact_us_emails': shelter.site_contact_us_emails,
                 'shelter_facebook': shelter.shelter_facebook,
                 'shelter_twitter': shelter.shelter_twitter,
+                'google_analytics': shelter.google_analytics,
             }
             template_values['shelter_data'] = json.dumps(template_values)
             template_values['admin'] = user.nickname()
@@ -59,6 +60,7 @@ class MainHandler(webapp.RequestHandler):
                 'site_contact_us_emails': '',
                 'shelter_facebook': '',
                 'shelter_twitter': '',
+                'google_analytics': '',
             }
             template_values['shelter_data'] = json.dumps(template_values)
             template_values['admin'] = user.nickname()
@@ -102,7 +104,8 @@ class ShelterSetupHandler(webapp.RequestHandler):
                             site_about_us_who=self.request.get('site_about_us_who'),
                             site_contact_us_emails=self.request.get('site_contact_us_emails'),
                             shelter_facebook=self.request.get('shelter_facebook'),
-                            shelter_twitter=self.request.get('shelter_twitter'))
+                            shelter_twitter=self.request.get('shelter_twitter'),
+                            google_analytics=self.request.get('google_analytics'))
 
         shelter.put()
         CacheUtil.setCachedContent('shelter', shelter)

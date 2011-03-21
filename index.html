@@ -46,12 +46,6 @@
             </div><!-- close featurePets -->
         </div><!-- close featureRow -->
 {% endif %}
-{% if site_news %}        
-        <div class="newsEventsRow">
-            <h2>News &amp; Events</h2>
-            {{ site_news|safe|linebreaks }}
-        </div><!-- close newsEventsRow -->
-{% endif %}
         <div class="otherItemsRow clearfix">
             <div class="aboutUsBox">
             	<h3>About Us</h3>
@@ -64,6 +58,12 @@
             	<a href="donations.html" class="text">Learn how you can help out!</a>
             </div><!-- close donateNowBox -->
         </div><!-- close otherItemsRow -->
+{% if site_news %}
+        <div class="newsEventsRow">
+            <h2>News &amp; Events</h2>
+            {{ site_news|safe|linebreaks }}
+        </div><!-- close newsEventsRow -->
+{% endif %}
 {% endblock main %}
 
 {% block javascript %}

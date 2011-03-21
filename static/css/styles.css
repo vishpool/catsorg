@@ -129,7 +129,6 @@ body {
 #main {
 	padding: 20px;
 	border-top: 1px solid #dd5f24;
-	border-bottom: 1px solid #dd5f24;
 }
 
 /** featureRow */
@@ -292,7 +291,7 @@ body {
 .newsEventsRow {
 	padding: 0 0 10px 0;
 	border-bottom: 1px solid #dd5f24;
-	margin: 0 0 10px 0;
+	margin: 20px 0 10px 0;
 }
 
 .newsEventsRow h2 {
@@ -401,7 +400,6 @@ body {
 }
 
 #footer {
-	padding: 20px;
 	text-align: center;
 }
 

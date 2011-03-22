@@ -92,7 +92,6 @@ body {
 
 #header h1 {
 	margin: 10px 0 0 0;
-	font-family: 'Crafty Girls', georgia, serif;
 	font-size: 36px;
 	color: #dd5f24;
 }
@@ -118,7 +117,7 @@ body {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	margin: 0 auto;
+	margin: 5px 0;
 	background: #dd5f24;
 	font-weight: normal;
 	font-size: 20px;

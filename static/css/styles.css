@@ -215,7 +215,7 @@ body {
 }
 
 .otherFeaturedPets .feature.last {
-	height: 83px;
+	height: 84px;
 }
 
 .otherFeaturedPets .feature .featureArrow {
@@ -259,7 +259,7 @@ body {
 }
 
 .otherFeaturedPets .feature.current .featureArrow,
-.otherFeaturedPets .feature:hover .featureArrow{
+.otherFeaturedPets .feature:hover .featureArrow {
 	display: block;
 	position: absolute;
 	top: 0;

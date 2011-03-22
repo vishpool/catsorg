@@ -2,14 +2,6 @@
 @import url(social_media.css);
 
 /** Primary styles */
-.floatLeft {
-	float: left;
-}
-
-.floatRight {
-	float: right;
-}
-
 body {
 	background: #f7ba00;
 }
@@ -19,24 +11,6 @@ body {
 	width: 960px;
 	margin: 0 auto;
 	background: #fff;
-}
-
-.leftFootPrints {
-	position: absolute;
-	top: 0;
-	left: -165px;
-	width: 165px;
-	height: 700px;
-	background: url(../images/bg_footPrints_left.png) no-repeat;
-}
-
-.rightFootPrints {
-	position: absolute;
-	top: 0;
-	right: -165px;
-	width: 165px;
-	height: 660px;
-	background: url(../images/bg_footPrints_right.png) no-repeat;
 }
 
 /** navigation */

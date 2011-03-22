@@ -194,3 +194,12 @@ button {  width: auto; overflow: visible; }
 .clearfix { display: inline-block; }
 * html .clearfix { height: 1%; } /* Hides from IE-mac \*/
 .clearfix { display: block; }
+
+/** General styles */
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}

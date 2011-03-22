@@ -15,7 +15,7 @@
     		<div id="images" class="images clearfix">
 				<div class="slides_container"> 
 				    {% for id, photo in pet.photos.items %}
-					<a href="{{ photo.x }}" target="_blank"><img src="{{ photo.x }}" alt="{{ pet.name }}'s {{ id }} Photo" {% boximg photo.info.1 photo.info.2 570 270 %} /></a>
+					<a href="{{ photo.x }}" target="_blank"><img src="{{ photo.x }}" alt="{{ pet.name }}'s {{ id }} Photo" /></a>
 					{% endfor %}
 				</div>
 				<a href="#" class="prev"><img src="images/icn_slides_arrow-prev.png" width="24" height="43" alt="Arrow Prev" /></a> 

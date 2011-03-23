@@ -183,6 +183,10 @@
 	width: 302px;
 }
 
+#main .featuredAd {
+	float: none;
+}
+
 .module {
 	margin: 20px 0 0;
 }

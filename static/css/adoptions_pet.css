@@ -190,3 +190,7 @@
 .module {
 	margin: 20px 0 0;
 }
+
+.module:first-child {
+	margin: 0;
+}

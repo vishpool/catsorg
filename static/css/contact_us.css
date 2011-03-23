@@ -4,6 +4,12 @@
 	min-height: 400px;
 }
 
+#contactUs {
+	float: left;
+	width: 600px;
+	margin: 0 18px 0 0;
+}
+
 #page.contactUs #main,
 #page.contactUs #main h2 {
 	border-bottom: none;
@@ -30,3 +36,14 @@
 	margin: 0 20px 15px;
 }
 
+.sidebar {
+	width: 302px;
+}
+
+#main .featureAd {
+	float: none;
+}
+
+.module {
+	margin: 20px 0 0;
+}

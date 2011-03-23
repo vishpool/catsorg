@@ -37,6 +37,7 @@ class MainHandler(webapp.RequestHandler):
             'site_contact_us_emails': shelter.site_contact_us_emails,
             'shelter_facebook': shelter.shelter_facebook,
             'shelter_twitter': shelter.shelter_twitter,
+            'shelter_twitter_user': os.path.basename(shelter.shelter_twitter),
             'google_analytics': shelter.google_analytics,
             'site_url': 'http://' + request.headers.get('Host'),
             'url': request.url,

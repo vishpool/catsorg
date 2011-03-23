@@ -15,7 +15,7 @@
     		<div id="images" class="images clearfix">
 				<div class="slides_container"> 
 				    {% for id, photo in pet.photos.items %}
-					<a href="{{ photo.x }}" target="_blank"><img src="{{ photo.x }}" alt="{{ pet.name }}'s {{ id }} Photo" /></a><!-- {% boximg photo.info.1 photo.info.2 570 270 %} -->
+					<a href="{{ photo.x }}" target="_blank"><img src="{{ photo.x }}" alt="{{ pet.name }}'s {{ id }} Photo" {% boximg photo.info.1 photo.info.2 570 270 %} /></a>
 					{% endfor %}
 				</div>
 				<a href="#" class="prev"><img src="images/icn_slides_arrow-prev.png" width="24" height="43" alt="Arrow Prev" /></a> 
@@ -43,9 +43,10 @@
     		</div>
     	</div><!-- close pet -->
     	<div class="sidebar">
+<!--
         	<div class="featureAd">
                 <img src="https://www.google.com/adsense/static/en_GB/images/300x250_img.jpg" alt="AD" />
-            </div><!-- close featureAd -->
+            </div>--><!-- close featureAd -->
             <div class="module">
 				<script src="http://widgets.twimg.com/j/2/widget.js"></script>
 				<script>
@@ -78,6 +79,9 @@
 				  }
 				}).render().setUser('{{ shelter_twitter_user }}').start();
 				</script>
+			</div>
+	        <div class="module">
+		        <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FCATS-Caring-About-The-Strays%2F160670147302165&amp;width=302&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=true&amp;height=300" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:302px; height:300px;" allowTransparency="true"></iframe>
 			</div>
         </div><!-- close sidebar -->
 {% endif %}

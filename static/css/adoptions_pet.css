@@ -51,17 +51,15 @@
 	background: #fff url(../images/slides_loading.gif) 50% 50% no-repeat;
 }
 
-/*
 #images .slides_container img {
     position: relative;
     margin-left: -15px;
 }
-*/
 
+/*
 #images .slides_control {
 	width: 540px;
 	height: 270px;
-	/*overflow: hidden;*/
 }
 
 #images .slides_control a {
@@ -72,6 +70,7 @@
 	line-height: 270px;
 	text-align: center;
 }
+*/
 
 #images .slides_control a img {
 	max-width: 540px;

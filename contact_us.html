@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block main %}
+	<div id="contactUs">
         <h2>Contact Information</h2>
 		<div class="contactUsAddress">
             <h3>Our mailing address</h3>
@@ -15,6 +16,45 @@
             <h3>Email us</h3>
            {{ site_contact_us_emails|safe|linebreaks }}
 		</div>
+	</div>
+	<div class="sidebar">
+    	<div class="featureAd">
+            <img src="https://www.google.com/adsense/static/en_GB/images/300x250_img.jpg" alt="AD" />
+        </div><!-- close featureAd -->
+        <div class="module">
+			<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+			<script>
+			new TWTR.Widget({
+			  version: 2,
+			  type: 'profile',
+			  rpp: 5,
+			  interval: 5000,
+			  width: 'auto',
+			  height: 300,
+			  theme: {
+			    shell: {
+			      background: '#dd5f24',
+			      color: '#ffffff'
+			    },
+			    tweets: {
+			      background: '#ffffff',
+			      color: '#000000',
+			      links: '#dd5f24'
+			    }
+			  },
+			  features: {
+			    scrollbar: true,
+			    loop: false,
+			    live: true,
+			    hashtags: true,
+			    timestamp: true,
+			    avatars: false,
+			    behavior: 'all'
+			  }
+			}).render().setUser('{{ shelter_twitter_user }}').start();
+			</script>
+		</div>
+    </div><!-- close sidebar -->
 {% endif %}
 {% endblock main %}
 

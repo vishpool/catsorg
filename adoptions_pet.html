@@ -15,16 +15,16 @@
     		<div id="images" class="images clearfix">
 				<div class="slides_container"> 
 				    {% for id, photo in pet.photos.items %}
-					<a href="{{ photo.x }}" target="_blank"><img src="{{ photo.x }}" alt="{{ pet.name }}'s {{ id }} Photo" /></a>
+					<a href="{{ photo.x }}" target="_blank"><img src="{{ photo.x }}" alt="{{ pet.name }}'s {{ id }} Photo" /></a><!-- {% boximg photo.info.1 photo.info.2 570 270 %} -->
 					{% endfor %}
 				</div>
 				<a href="#" class="prev"><img src="images/icn_slides_arrow-prev.png" width="24" height="43" alt="Arrow Prev" /></a> 
 				<a href="#" class="next"><img src="images/icn_slides_arrow-next.png" width="24" height="43" alt="Arrow Next" /></a> 
     		</div><!-- close images -->
     		<div id="shareBar" class="socialMedia clearfix">
-                <a href="mailto:?subject={{ pet.animal|urlencode }} {{ pet.name|urlencode }} at {{ shelter_name|urlencode }}&body=Check out {{ pet.animal|urlencode }} {{ pet.name|urlencode }} at {{ shelter_name }}: {{ url|urlencode }}" class="email"></a>
-                <a href="http://twitter.com/home?status=Check out {{ pet.animal|urlencode }} {{ pet.name|urlencode }} at {{ shelter_name|urlencode }} {{ url|urlencode }}" class="twitter" target="_blank"></a>
-                <a href="http://www.facebook.com/sharer.php?u={{ url|urlencode }}&t=Check out {{ pet.animal|urlencode }} {{ pet.name|urlencode }} at {{ shelter_name|urlencode }}" class="facebook" target="_blank"></a>
+                <a href="mailto:?subject={{ pet.animal|urlencode }} {{ pet.name|urlencode }} at {{ shelter_name|urlencode }}&body=Meet {{ pet.animal|urlencode }} {{ pet.name|urlencode }} at {{ shelter_name }}: {{ url|urlencode }}" class="email"></a>
+                <a href="http://twitter.com/home?status=Meet {{ pet.animal|urlencode }} {{ pet.name|urlencode }} at {{ shelter_name|urlencode }} {{ url|urlencode }}" class="twitter" target="_blank"></a>
+                <a href="http://www.facebook.com/sharer.php?u={{ url|urlencode }}&t=Meet {{ pet.animal|urlencode }} {{ pet.name|urlencode }} at {{ shelter_name|urlencode }}" class="facebook" target="_blank"></a>
     		</div>
     		<div id="description">
     			<h3>Description</h3>
@@ -46,6 +46,39 @@
         	<div class="featureAd">
                 <img src="https://www.google.com/adsense/static/en_GB/images/300x250_img.jpg" alt="AD" />
             </div><!-- close featureAd -->
+            <div class="module">
+				<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+				<script>
+				new TWTR.Widget({
+				  version: 2,
+				  type: 'profile',
+				  rpp: 5,
+				  interval: 5000,
+				  width: 'auto',
+				  height: 300,
+				  theme: {
+				    shell: {
+				      background: '#dd5f24',
+				      color: '#ffffff'
+				    },
+				    tweets: {
+				      background: '#ffffff',
+				      color: '#000000',
+				      links: '#dd5f24'
+				    }
+				  },
+				  features: {
+				    scrollbar: true,
+				    loop: false,
+				    live: true,
+				    hashtags: true,
+				    timestamp: true,
+				    avatars: false,
+				    behavior: 'all'
+				  }
+				}).render().setUser('{{ shelter_twitter }}').start();
+				</script>
+			</div>
         </div><!-- close sidebar -->
 {% endif %}
 {% endblock main %}

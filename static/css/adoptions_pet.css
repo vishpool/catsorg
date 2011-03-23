@@ -59,7 +59,7 @@
 #images .slides_control {
 	width: 540px;
 	height: 270px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 #images .slides_control a {
@@ -69,6 +69,12 @@
 	overflow: hidden;
 	line-height: 270px;
 	text-align: center;
+}
+
+#images .slides_control a img {
+	max-width: 540px;
+	max-height: 270px;
+	line-height: 270px;
 	vertical-align: middle;
 }
 
@@ -169,4 +175,8 @@
 	color: #fff;
 	text-decoration: none;
 	text-transform: uppercase;
+}
+
+#sidebar {
+	width: 300px;
 }

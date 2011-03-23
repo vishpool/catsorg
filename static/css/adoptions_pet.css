@@ -19,7 +19,7 @@
 	position: relative;
 	float: left;
 	width: 600px;
-	margin: 0 20px 0 0;
+	margin: 0 18px 0 0;
 }
 
 #pet .btnAdoptMe {
@@ -150,7 +150,7 @@
 }
 
 #pet .shelterInfo p {
-	margin: 0 0 18px;
+	margin: 0 0 20px;
 }
 
 #pet .shelterInfo h2 {

@@ -43,8 +43,6 @@ class MainHandler(webapp.RequestHandler):
             'url': request.url,
             'logo': 'http://' + request.headers.get('Host') + '/images/logo_main.png'
         }
-        if request.headers.get('Referer') is not None and request.headers.get('Host') in request.headers.get('Referer'):
-            values['back'] = True
         
         return values
 
@@ -109,6 +107,8 @@ class AdoptionsPetHandler(webapp.RequestHandler):
             'page_class': 'adoptions',
             'pet': pet,
         }
+        if self.request.headers.get('Referer') is not None and self.request.headers.get('Host') in self.request.headers.get('Referer') and 'adoptions.html' in self.request.headers.get('Referer'):
+            values['back'] = True
         values = dict(values, **MainHandler.getMainValues(self.request))
 
         path = os.path.join(os.path.dirname(__file__), 'adoptions_pet.html')

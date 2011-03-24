@@ -29,7 +29,7 @@
     		<div id="description">
     			<h3>Description</h3>
     			<p>{{ pet.description|safe }}</p>
-    			<p class="seePetfinder"><a href="http://www.petfinder.com/petdetail/{{ pet.id }}" target="_blank">See on Petfinder.com &raquo;</a></p>
+    			<p class="link"><a href="http://www.petfinder.com/petdetail/{{ pet.id }}" target="_blank">See on Petfinder.com &raquo;</a></p>
     		</div><!-- close description -->
     		<div class="shelterInfo">
     			<h3>Adoption</h3>
@@ -41,6 +41,9 @@
     			<p>It's only $100 to sponsor one of these precious and special animals and give him or her a chance at a long and happy life. Thank you!</p>
                 <a class="btnDonation" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business={{ shelter_email_donations|urlencode }}&lc=US&item_name={{ shelter_name|urlencode }}{{ " - Lifesaving Sponsorship for "|urlencode }}{{ pet.name|urlencode }}&item_number={{ pet.name|urlencode }}:{{ pet.id }}&amount=100&no_note=1&no_shipping=1&rm=1&return={{ url|urlencode }}&cancel_return={{ url|urlencode }}&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted&image_url={{ logo|urlencode }}" class="btnSponsor">Sponsor {{ pet.name }}!</a>
     		</div>
+    		<div class="shelterAdoptions clearfix">
+				<p class="link"><a href="/adoptions.html">{% if back %}Back to{% else %}See more{% endif %} Adoptions &raquo;</a></p>
+			</div>
     	</div><!-- close pet -->
     	<div class="sidebar">
         	<div class="featureAd">

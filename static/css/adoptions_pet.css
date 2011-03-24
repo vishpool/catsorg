@@ -110,17 +110,17 @@
 	margin: 10px 0 20px 0;
 }
 
-#description p.seePetfinder {
+p.link {
 	text-align: right;
 }
 
-#description .seePetfinder a{
+p.link a{
 	font-weight: bold;
 	color: #dd5f24;
 	text-decoration: none;
 }
 
-#description a.seePetfinder:hover {
+p.link a:hover {
 	text-decoration: underline;
 }
 
@@ -176,6 +176,10 @@
 	color: #fff;
 	text-decoration: none;
 	text-transform: uppercase;
+}
+
+#pet .shelterAdoptions {
+	margin: 20px 0;
 }
 
 .sidebar {

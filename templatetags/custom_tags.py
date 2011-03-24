@@ -49,10 +49,6 @@ def boximg(width, height, maxwidth, maxheight):
         
     top = (maxheight - boxheight) / 2
     left = (maxwidth - boxwidth) / 2
-    logging.debug(boxwidth)
-    logging.debug(boxheight)
-    logging.debug(left)
-    logging.debug(top)
     logging.debug('boximg (%dx%d => %dx%d): max-height=%d, left=%d, top=%d', int(width), int(height), int(maxwidth), int(maxheight), int(maxheight), int(left), int(top))
     return 'style="max-width: %dpx; max-height: %dpx; left: %dpx; top: %dpx;"' % (int(maxwidth), int(maxheight), int(left), int(top))
 

@@ -264,7 +264,7 @@ body {
 
 .newsEventsRow {
 	padding: 0 0 10px 0;
-	margin: 20px 0 10px 0;
+	margin: 20px 0 0;
 }
 
 .newsEventsRow h2 {
@@ -373,6 +373,7 @@ body {
 }
 
 #footer {
+	padding-top: 10px;
 	border-top: 1px solid #dd5f24;
 	text-align: center;
 }

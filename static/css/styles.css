@@ -263,7 +263,7 @@ body {
 }
 
 .newsEventsRow {
-	padding: 0 0 10px 0;
+	padding: 0 0;
 	margin: 20px 0 0;
 }
 
@@ -373,7 +373,7 @@ body {
 }
 
 #footer {
-	padding: 10px;
+	padding: 20px;
 	border-top: 1px solid #dd5f24;
 	text-align: center;
 }

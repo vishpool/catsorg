@@ -72,7 +72,7 @@ class PetFinderAPI:
 #             pet = self.getResponse('pet.get', data)
 #             Workaround for pet.get
             petDB = Pet.get_by_key_name(pet_id)
-            if pet is not None: 
+            if petDB is not None: 
                 pet = petDB.pet_data
                 pet = {
                     'id': pet['id']['$t'],

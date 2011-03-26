@@ -98,7 +98,6 @@ class AdoptionsPetHandler(webapp.RequestHandler):
         api = PetFinderAPI()
         pet = api.getShelterPet(pet_id)
 
-        logging.debug(self.request)
         values = {
             'page': page,
             'nav': 'adoptions',

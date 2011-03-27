@@ -16,8 +16,10 @@ class PetFinderAPI:
     base = 'http://api.petfinder.com/'
     token = None
     shelter = None
+    cache = True
     
-    def __init__(self):
+    def __init__(self, cache = True):
+        self.cache = cache
         logging.getLogger().setLevel(logging.DEBUG)        
         
     def getShelterPets(self, offset = 0, count = 25):
@@ -31,7 +33,7 @@ class PetFinderAPI:
         
         pets = []
         for pet in res['petfinder']['pets']['pet']:
-            cpet = CacheUtil.getCachedContent('pet-' + str(pet['id']['$t']))
+            cpet = CacheUtil.getCachedContent('pet-' + str(pet['id']['$t']), self.cache)
             if cpet is not None:
                 pet = cpet
             else:
@@ -61,7 +63,7 @@ class PetFinderAPI:
     
     def getShelterPet(self, pet_id):
 
-        pet = CacheUtil.getCachedContent('pet-' + pet_id)
+        pet = CacheUtil.getCachedContent('pet-' + pet_id, self.cache)
         if pet is not None:
             return pet
         else:
@@ -150,7 +152,7 @@ class PetFinderAPI:
         signed = self.getSigned(params)
         url = self.base + method + '?' + signed
         
-        return json.loads(CacheUtil.getCachedResponse(url))
+        return json.loads(CacheUtil.getCachedResponse(url, self.cache))
 
     def getSigned(self, params):
         return params + '&sig=' + md5.new(self.getApiSecret() + params).hexdigest()

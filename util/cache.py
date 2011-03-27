@@ -9,12 +9,14 @@ from google.appengine.api import urlfetch
 class CacheUtil:
 
     @staticmethod
-    def getCachedResponse(url, ttl=60*60*24):
+    def getCachedResponse(url, cache=True, ttl=60*60*24):
 
         logging.getLogger().setLevel(logging.DEBUG)   
 
         key = md5.new(url).hexdigest()
-        res = memcache.get(key)
+        res = None
+        if cache:
+        	res = memcache.get(key)
         if res is not None:
             logging.debug('Cached response (%s): %s', key, res)
 
@@ -27,12 +29,14 @@ class CacheUtil:
             return res
 
     @staticmethod
-    def getCachedContent(key):
+    def getCachedContent(key, cache=True):
 
         logging.getLogger().setLevel(logging.DEBUG)   
 
         key = md5.new(key).hexdigest()
-        data = memcache.get(key)
+        data = None
+        if cache:
+            data = memcache.get(key)
         if data is not None:
             logging.debug('Cached content (%s): %s', key, data)
             

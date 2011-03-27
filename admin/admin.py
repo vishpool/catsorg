@@ -69,15 +69,16 @@ class MainHandler(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'admin.html')
         self.response.out.write(template.render(path, template_values))
         
-    def post(self):
+class GetHandler(webapp.RequestHandler):
+    def get(self):
         action = self.request.get('submit')
         
         if action == 'Get Pets':
-            api = PetFinderAPI()
+            api = PetFinderAPI(False)
             pets = api.getShelterPets()
 
             for pet in pets:
-                logging.debug(pet['id'])
+                logging.debug('Caching pet ' + str(pet['id']))
                 p = '<a href="http://www.petfinder.com/petdetail/' + str(pet['id']) + '" title="' + pet['name'] + '">'
                 if pet['photos']:
                     p += '<img src="' + pet['photos'][1]['t'] + '" />'
@@ -115,6 +116,7 @@ def main():
     logging.getLogger().setLevel(logging.DEBUG)
 
     application = webapp.WSGIApplication([('/admin/?', MainHandler),
+                                         ('/admin/get', GetHandler),
                                          ('/admin/shelter', ShelterSetupHandler)],
                                          debug=True)
     util.run_wsgi_app(application)

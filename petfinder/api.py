@@ -32,7 +32,15 @@ class PetFinderAPI:
         res = self.getResponse('shelter.getPets', data)
         
         pets = []
+        if 'petfinder' not in res or 'pets' not in res['petfinder'] or 'pet' not in res['petfinder']['pets']:
+            return pets
+        if not isinstance(res['petfinder']['pets']['pet'], (list)):
+            res['petfinder']['pets']['pet'] = [res['petfinder']['pets']['pet']]
+
         for pet in res['petfinder']['pets']['pet']:
+            if 'id' not in pet:
+                continue
+
             cpet = CacheUtil.getCachedContent('pet-' + str(pet['id']['$t']), self.cache)
             if cpet is not None:
                 pet = cpet

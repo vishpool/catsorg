@@ -46,6 +46,52 @@
             </div><!-- close featurePets -->
         </div><!-- close featureRow -->
 {% endif %}
+{% if site_news %}
+        <div class="contentRow clearfix">
+            <div class="newsEventsRow floatLeft">
+                <h2>News &amp; Events</h2>
+                {{ site_news|safe|linebreaks }}
+            </div><!-- close newsEventsRow -->
+        	<div class="sidebar floatRight">
+                <div class="module">
+    				<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+    				<script>
+    				new TWTR.Widget({
+    				  version: 2,
+    				  type: 'profile',
+    				  rpp: 5,
+    				  interval: 5000,
+    				  width: 'auto',
+    				  height: 300,
+    				  theme: {
+    				    shell: {
+    				      background: '#dd5f24',
+    				      color: '#ffffff'
+    				    },
+    				    tweets: {
+    				      background: '#ffffff',
+    				      color: '#000000',
+    				      links: '#dd5f24'
+    				    }
+    				  },
+    				  features: {
+    				    scrollbar: true,
+    				    loop: false,
+    				    live: true,
+    				    hashtags: true,
+    				    timestamp: true,
+    				    avatars: false,
+    				    behavior: 'all'
+    				  }
+    				}).render().setUser('{{ shelter_twitter_user }}').start();
+    				</script>
+    			</div>
+    	        <div class="module">
+    		        <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FCATS-Caring-About-The-Strays%2F160670147302165&amp;width=302&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=true&amp;height=300" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:302px; height:300px;" allowTransparency="true"></iframe>
+    			</div>
+            </div><!-- close sidebar -->
+        </div>
+{% endif %}
         <div class="otherItemsRow clearfix">
             <div class="donateNowBox">
             	<h3>Donations</h3>
@@ -58,12 +104,6 @@
             	<a href="about_us.html" class="text">Learn more about what we do!</a>
             </div><!-- close aboutUsBox -->
         </div><!-- close otherItemsRow -->
-{% if site_news %}
-        <div class="newsEventsRow">
-            <h2>News &amp; Events</h2>
-            {{ site_news|safe|linebreaks }}
-        </div><!-- close newsEventsRow -->
-{% endif %}
 {% endblock main %}
 
 {% block javascript %}

@@ -182,18 +182,6 @@ p.link a:hover {
 	margin: 20px 0;
 }
 
-.sidebar {
-	width: 302px;
-}
-
-#main .featureAd {
+#main div.sidebar .featureAd {
 	float: none;
-}
-
-.module {
-	margin: 20px 0 0;
-}
-
-.module:first-child {
-	margin: 0;
 }

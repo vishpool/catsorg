@@ -96,3 +96,21 @@
 .petPag img {
 	margin: 11px 0 9px;
 }
+
+#main div.sidebar {
+	float: right;
+	width: 160px;
+}
+
+#main div.sidebar .payPalVerified {
+	text-align: center;
+}
+
+#main .sidebar .ad {
+	width: 160px;
+	height: 600px;
+	margin: 20px auto;
+	border: 1px solid #ccc;
+	background: 0;
+}
+

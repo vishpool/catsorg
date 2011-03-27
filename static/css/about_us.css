@@ -59,3 +59,13 @@
 div.whoIsInfo p {
 	margin: 0 20px 10px;
 }
+
+#main div.sidebar {
+	float: right;
+	width: 160px;
+}
+
+#main div.sidebar .payPalVerified {
+	text-align: center;
+}
+

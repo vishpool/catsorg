@@ -75,7 +75,7 @@ class GetHandler(webapp.RequestHandler):
         
         if action == 'Get Pets':
             api = PetFinderAPI(False)
-            pets = api.getShelterPets()
+            pets = api.getShelterPets(0, 100)
 
             for pet in pets:
                 logging.debug('Caching pet ' + str(pet['id']))

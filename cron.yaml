@@ -1,3 +1,3 @@
-- description: daily get pets job
+- description: hourly get pets job
   url: /admin/get?submit=Get%20Pets
   schedule: every 1 hours

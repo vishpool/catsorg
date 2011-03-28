@@ -187,6 +187,22 @@ class ContactUsHandler(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), req)
         self.response.out.write(template.render(path, values))
 
+class CreditsHandler(webapp.RequestHandler):
+
+    def get(self, req, page):
+
+        values = {
+            'page': page,
+            'nav': 'contact_us',
+            'title': 'Credits and Attributions',
+            'css': 'credits.css',
+            'page_class': 'credits'
+        }
+        values = dict(values, **MainHandler.getMainValues(self.request))
+
+        path = os.path.join(os.path.dirname(__file__), req)
+        self.response.out.write(template.render(path, values))
+
 def main():
 
     logging.getLogger().setLevel(logging.DEBUG)
@@ -197,7 +213,8 @@ def main():
                                           ('/((application)(-(.+)-(\d+))?.html)', ApplicationHandler),
                                           ('/((donations|donations_success).html)', DonationsHandler),
                                           ('/((about_us).html)', AboutUsHandler),
-                                          ('/((contact_us).html)', ContactUsHandler)],
+                                          ('/((contact_us).html)', ContactUsHandler),
+                                          ('/((credits).html)', CreditsHandler)],
                                          debug=True)
     util.run_wsgi_app(application)
 

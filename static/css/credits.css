@@ -1,0 +1,51 @@
+@import url(styles.css);
+
+#main {
+	min-height: 400px;
+}
+
+#credits {
+	float: left;
+	width: 600px;
+	margin: 0 18px 0 0;
+}
+
+#page.credits #main,
+#page.credits #main h2 {
+	border-bottom: none;
+}
+
+#page.credits #main h2 {
+	font-size: 24px;
+	margin: 0 0 10px 0;
+}
+
+#page.credits #main h2,
+#page.credits h3 {
+	color: #dd5f24;
+}
+
+#page.credits h3 {
+	font-size: 16px;
+	margin: 0 0 5px;
+}
+
+.websiteCredits,
+.imageCredits {
+	margin: 0 20px 15px;
+}
+
+.websiteCredits p,
+.imageCredits p {
+	margin: 10px 0;
+}
+
+.websiteCredits img,
+.imageCredits img {
+	padding: 2px;
+	border: 1px solid #ccc;
+}
+
+.sidebar {
+	width: 302px;
+}

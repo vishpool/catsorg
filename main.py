@@ -193,7 +193,7 @@ class CreditsHandler(webapp.RequestHandler):
 
         values = {
             'page': page,
-            'nav': 'contact_us',
+            'nav': 'about_us',
             'title': 'Credits and Attributions',
             'css': 'credits.css',
             'page_class': 'credits'

@@ -69,13 +69,16 @@ class MainHandler(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'admin.html')
         self.response.out.write(template.render(path, template_values))
         
-class GetHandler(webapp.RequestHandler):
+class UtilHandler(webapp.RequestHandler):
     def get(self):
         action = self.request.get('submit')
         
-        if action == 'Get Pets':
+        if action == 'Get All Pets' or action == 'Get Pets':
             api = PetFinderAPI(False)
-            pets = api.getShelterPets(0, 100)
+            if action == 'Get All Pets':
+                pets = api.getShelterPets(0, 100)       
+            elif action == 'Get Pets':
+                pets = api.getShelterPets()
 
             for pet in pets:
                 logging.debug('Caching pet ' + str(pet['id']))
@@ -84,7 +87,10 @@ class GetHandler(webapp.RequestHandler):
                     p += '<img src="' + pet['photos'][1]['t'] + '" />'
                 p += '</a>'
                 self.response.out.write(p)
-                
+
+        elif action == 'Flush Cache':
+            CacheUtil.flushCache()
+            self.response.out.write('Cache flushed!')             
 
 class ShelterSetupHandler(webapp.RequestHandler):
     def post(self):
@@ -116,7 +122,7 @@ def main():
     logging.getLogger().setLevel(logging.DEBUG)
 
     application = webapp.WSGIApplication([('/admin/?', MainHandler),
-                                         ('/admin/get', GetHandler),
+                                         ('/admin/util', UtilHandler),
                                          ('/admin/shelter', ShelterSetupHandler)],
                                          debug=True)
     util.run_wsgi_app(application)

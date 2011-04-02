@@ -22,11 +22,12 @@ class CacheUtil:
 
             return res
         else:
-            res = urlfetch.fetch(url, deadline=20).content
-            logging.debug('Caching response (%s): %s', key, res)
-            memcache.add(key, res, ttl)
-            
-            return res
+            res = urlfetch.fetch(url, deadline=20)
+            if res.status_code == 200:
+                logging.debug('Caching response (%s): %s', key, res.content)
+                memcache.add(key, res.content, ttl)
+                
+                return res.content
 
     @staticmethod
     def getCachedContent(key, cache=True):
@@ -50,5 +51,12 @@ class CacheUtil:
         key = md5.new(key).hexdigest()
         logging.debug('Caching content (%s): %s', key, data)
         memcache.set(key, data, ttl)
+        
+    @staticmethod
+    def flushCache():
+        logging.getLogger().setLevel(logging.DEBUG)   
+        
+        logging.debug('Flushing memcache')
+        memcache.flush_all()
         
     

@@ -25,6 +25,8 @@ class MainHandler(webapp.RequestHandler):
 
         values = {
             'site_title': shelter.site_title,
+            'site_description': shelter.site_description,
+            'site_keywords': shelter.site_keywords,
             'site_footer': shelter.site_footer,
             'shelter_name': shelter.shelter_name,
             'shelter_phone': shelter.shelter_phone,

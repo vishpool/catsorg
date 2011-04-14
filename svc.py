@@ -29,12 +29,12 @@ class MainHandler(webapp.RequestHandler):
         pets = api.getShelterPets(offset, 12)
 
         if format == 'json': 
-            res = {'svc': { name: pets }}
+            res = {'svc': { 'pets': pets, 'offset': offset }}
     
             self.response.headers['Content-Type'] = 'application/json'
             self.response.out.write(json.dumps(res))
         else:
-            values = {'pets': pets}
+            values = {'pets': pets, 'offset': offset}
  
             path = os.path.join(os.path.dirname(__file__), 'svc_' + name + '.html')
             self.response.out.write(template.render(path, values))

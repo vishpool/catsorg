@@ -34,7 +34,7 @@
     		<div class="shelterInfo">
     			<h3>Adoption</h3>
     			<p>Adopt one of our special animals and save not just one but two lives! You save the life of the animal that you adopt, and you make room for us to bring another homeless animal into our foster network in hopes of finding a loving, forever family and living a long and happy life.</p>
-    			<p>If you are ready to adopt a pet, simply fill out our online application to start the process. This information and consultation with a {{ shelter_name }} representative are designed to help you find the cat most compatible with your lifestyle.</p>
+    			<p>If you are ready to adopt a pet, simply fill out our online application to start the process. This information and consultation with a {{ shelter_name }} representative are designed to help you find the pet most compatible with your lifestyle.</p>
                 <a class="btnAdoption" href="/application-{{ pet.name|slugify }}-{{ pet.id }}.html" class="btnAdopt">Adopt {{ pet.name }}!</a>
     			<h3>Lifesaving Sponsorship</h3>
     			<p>Become a sponsor to one of our foster animals and you will be helping us support one of our furry friends while they wait for a permanent home. As a no-kill organization, some of our animals have spent their lives under our care without ever being considered for adoption. This would not be possible if it weren't for the kindness of your contributions. </p>
@@ -83,7 +83,7 @@
 				</script>
 			</div>
 	        <div class="module">
-		        <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FCATS-Caring-About-The-Strays%2F160670147302165&amp;width=302&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=true&amp;height=360" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:302px; height:370px;" allowTransparency="true"></iframe>
+		        <iframe src="http://www.facebook.com/plugins/likebox.php?href={{ shelter_facebook|urlencode }}&amp;width=302&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=true&amp;height=360" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:302px; height:370px;" allowTransparency="true"></iframe>
 			</div>
         </div><!-- close sidebar -->
 {% endif %}

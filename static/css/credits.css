@@ -31,17 +31,20 @@
 }
 
 .websiteCredits,
-.imageCredits {
+.imageCredits,
+.otherCredits {
 	margin: 0 20px 15px;
 }
 
 .websiteCredits p,
-.imageCredits p {
+.imageCredits p,
+.otherCredits p {
 	margin: 10px 0;
 }
 
 .websiteCredits img,
 .imageCredits img {
+.otherCredits img {
 	padding: 2px;
 	border: 1px solid #ccc;
 }

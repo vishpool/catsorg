@@ -40,12 +40,14 @@ class MainHandler(webapp.RequestHandler):
             'shelter_facebook': shelter.shelter_facebook,
             'shelter_twitter': shelter.shelter_twitter,
             'shelter_twitter_user': os.path.basename(shelter.shelter_twitter),
+            'shelter_flickr': shelter.shelter_flickr,
+            'shelter_amazon_wishlist': shelter.shelter_amazon_wishlist,
             'google_analytics': shelter.google_analytics,
             'site_url': 'http://' + request.headers.get('Host'),
             'url': request.url,
             'logo': 'http://' + request.headers.get('Host') + '/images/logo_main.png'
         }
-        
+
         return values
 
     def get(self, req, page):

@@ -37,6 +37,34 @@
 	color: #fff;
 }
 
+.amzn_wdgt .ft_cnt {
+	padding: 10px 0;
+}
+
+.amzn_wdgt .ft_cnt a:nth-child(1) {
+	display: none;
+}
+
+.amzn_wdgt .ft_cnt a:nth-child(2) {
+	float:right !important;
+}
+
+.amzn_wdgt .ft_cnt a:nth-child(3) {
+	float: left !important;
+}
+
+#flickrshow {
+	width: 300px;
+	height: 250px;
+	float: right;
+	border: 1px solid #dd5f24;
+}
+
+#flickrshow .flickrshow-container {
+	width: 300px !important;
+	height: 250px !important;
+}
+
 /*
 #main .socialMedia a.facebook,
 #main .socialMedia a.twitter,

@@ -21,6 +21,8 @@ class Shelter(db.Model):
     site_contact_us_emails = db.TextProperty(required=False)
     shelter_facebook = db.StringProperty(required=False)
     shelter_twitter = db.StringProperty(required=False)
+    shelter_flickr = db.StringProperty(required=False)
+    shelter_amazon_wishlist = db.StringProperty(required=False)
     google_analytics = db.StringProperty(required=False)
     updated = db.DateTimeProperty(auto_now_add=True)
 

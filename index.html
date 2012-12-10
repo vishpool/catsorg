@@ -41,8 +41,7 @@
                     {% endfor %}
                 </div><!-- close otherFeaturedPets -->
             </div><!-- close featurePets -->
-            <div class="featureAd">
-                <img src="https://www.google.com/adsense/static/en_GB/images/300x250_img.jpg" alt="AD" />
+            <div id="flickrshow">
             </div><!-- close featurePets -->
         </div><!-- close featureRow -->
 {% endif %}
@@ -89,6 +88,9 @@
     	        <div class="module">
     		        <iframe src="http://www.facebook.com/plugins/likebox.php?href={{ shelter_facebook|urlencode }}&amp;width=302&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=true&amp;height=360" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:302px; height:370px;" allowTransparency="true"></iframe>
     			</div>
+                <div class="module">
+                    <SCRIPT charset="utf-8" type="text/javascript" src="{{ shelter_amazon_wishlist }}"> </SCRIPT> <NOSCRIPT><A HREF="{{ shelter_amazon_wishlist }}">Amazon.com Widgets</A></NOSCRIPT>
+                </div>
             </div><!-- close sidebar -->
         </div>
 {% endif %}
@@ -110,5 +112,17 @@
 {{ block.super }}
     <script type="text/javascript" src="js/jquery.featureList-1.0.0.js"></script>
     <script type="text/javascript" src="js/featureBox.js"></script>
+    <script type="text/javascript" src="js/flickrshow-7.2.min.js"></script>
+    <script>
+        var robin = new flickrshow('flickrshow', {
+          autoplay:true,
+          interval:5000,
+          license:null,
+          page:1,
+          per_page:10,
+          user:'{{ shelter_flickr }}'
+        });
+    </script>
+
 {% endblock javascript %}
 

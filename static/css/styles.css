@@ -258,6 +258,7 @@ body {
     margin: 0;
 }
 
+/* newsEventsRow */
 .newsEventsRow {
 	padding: 0 0;
 	margin: 0 0 20px 0;
@@ -272,7 +273,7 @@ body {
 
 .newsEventsRow h3 {
 	font-size: 18px;
-	margin: 20px 0 0 20px;
+	margin: 0 0 10px 0;
 	color: #dd5f24;
 }
 
@@ -283,9 +284,26 @@ body {
 }
 
 .newsEventsRow p {
-	margin: 0 20px 15px;
+	margin: 0 0 15px;
 }
 
+/* featuredNews */
+.featuredNews {
+  position: relative;
+  padding: 15px;
+  border: 1px solid #DD5F24;
+  margin: 25px 0 10px;  
+}
+
+.featuredNews .featuredHeading {
+  position: absolute;
+  top: -10px;
+  padding: 3px;
+  background: #DD5F24;
+  color: #fff;
+}
+
+/* sidebar */
 .sidebar .featureAd {
 	float: right;
 	width: 300px;
